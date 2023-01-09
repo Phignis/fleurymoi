@@ -1,0 +1,3 @@
+<footer>
+	Incoming footer
+</footer>
