@@ -6,12 +6,20 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
+		
 		<title>fleurYmoi</title>
+		
+		<meta name="description" content="Avoir des infos sur des plantes">
+		<meta name="keywords" content="fleurs, plantes, informations, infos">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
 	</head>
 	<body>
-		<?php require("ressources/html_parts/header.php") ?>
+		<?php
+			$_SESSION['user'] = 'Toto';
+			require("ressources/html_parts/header.php"); ?>
 		
-		<h1>fleurYmoi</h1>
 		<p>
 			Site en construction...
 		</p>
@@ -42,6 +50,6 @@
 			?>
 		</p>
 		
-		<?php require("ressources/html_parts/header.php") ?>
+		<?php require("ressources/html_parts/footer.php"); ?>
 	</body>
 </html>

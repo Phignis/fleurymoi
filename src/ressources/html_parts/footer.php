@@ -1,3 +1,4 @@
 <footer>
-	Incoming footer
+	<hr>
+	<b>Incoming footer</b>
 </footer>
