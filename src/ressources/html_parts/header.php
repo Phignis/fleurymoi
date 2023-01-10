@@ -1,19 +1,20 @@
 <header>
 	<div id="title_account">
 		
-		<a href="/index.php">
-			<img id="logo_fleurymoi" src="ressources/images/logo_fleurymoi.svg" alt="fleurYmoi">
+		<a href="index.php">
+			<?php include("ressources/images/logos/logo_fleurymoi.php") ?>
 		<a>
 		
 		<div id="account">
-			<a href="/views/connexion.php">
+			<?php $_GET['action'] = 'accueil'; ?>
+			<a href="index.php">
 				<?php
 					
 					// if profile picture is set, we set this to src, else default used
 					if(isset($_SESSION['profile_picture']) && !empty($_SESSION['profile_picture']))
 						echo '<img id="pp_account" src="' . $_SESSION['profile_picture'] . '" alt="Profile Picture">';
 					else
-						echo '<img id="pp_account" src="/ressources/images/user_profile_picture/default.svg" alt="Profile Picture">';
+						include('ressources/images/user_profile_picture/default.php');
 					
 					if(isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 						echo "<p>" . $_SESSION['user'] . " connected!</p>";

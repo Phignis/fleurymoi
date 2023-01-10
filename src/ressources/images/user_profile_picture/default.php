@@ -6,7 +6,7 @@
    height="59.94849mm"
    viewBox="0 0 36.909225 59.94849"
    version="1.1"
-   id="svg5"
+   id="pp_account"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
    sodipodi:docname="dessin.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -57,13 +57,13 @@
      id="layer1"
      transform="translate(-1.8657121,-1.5325623)">
     <path
-       style="fill:none;stroke:#745d42;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:var(--interactible-color);stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 3.1657141,59.687934 c 0,-9.934384 0,-19.869028 5.7184505,-24.836485 5.7184504,-4.967457 17.1546254,-4.967457 22.8726974,0.11562 5.718072,5.083077 5.718072,15.248561 5.718072,25.413985"
        id="path857"
        inkscape:path-effect="#path-effect859"
        inkscape:original-d="m 3.1657141,59.687934 c 2.64e-4,-9.934384 2.64e-4,-19.869028 0,-29.803942 11.4369009,2.6e-4 22.8730759,2.6e-4 34.3092199,0 2.6e-4,10.166154 2.6e-4,20.331638 0,30.497062" />
     <circle
-       style="fill:#ffffff;fill-opacity:0;stroke:#745d42;stroke-width:1.64626;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:0;stroke:var(--interactible-color);stroke-width:1.64626;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path916"
        cx="20.549601"
        cy="16.148314"

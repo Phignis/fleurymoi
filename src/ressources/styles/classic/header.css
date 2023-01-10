@@ -4,7 +4,7 @@ header {
 	flex-flow: column wrap;
 	justify-content: space-between;
 	
-	background-color: #d6f5e3;
+	background-color: var(--primary-lighter-color);
 	padding: 1em;
 	
 	width: 80%;
@@ -23,8 +23,8 @@ header #title_account {
 	align-items: center;
 }
 
-header #logo_fleurymoi {
-	width: 11em;
+header #logo_fleurYmoi {
+	width: 11rem;
 }
 
 header #account {
@@ -34,11 +34,11 @@ header #account {
 }
 
 header #account #pp_account {
-	height: 3em;
+	height: 3rem;
 }
 
 header #account p {
 	color:#745d42;
-	font-family: 'Sofia Sans Semi Condensed', sans-serif;
-	font-size: 1.5em;
+	font-family: var(--minor-title-font);
+	font-size: 1rem;
 }

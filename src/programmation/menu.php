@@ -14,12 +14,16 @@
 		
 		if(!isset($_REQUEST['action']) || empty($_REQUEST['action'])) { // on arrive pour la première fois sur le site, on arrive sur l'accueil
 			
-			
-			
 			require('./views/listPossededPlants.php');
 			
 			return;
 		}
 		
 		// switch sur les actions possibles
+		
+		global $actionList;
+		
+		switch($_REQUEST['action']) {
+			
+		}
 	}

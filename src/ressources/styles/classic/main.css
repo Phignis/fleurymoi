@@ -1,8 +1,27 @@
+/* font-family: 'Sofia Sans Semi Condensed', sans-serif; intended for minor titles*/
 @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed&display=swap');
+
+/* font-family: 'Nunito', sans-serif; intended for text*/
+/* font-family: 'Nunito', sans-serif; intended for text*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+:root, #logo {
+	/* define colors */
+	--primary-color: #10492a;
+	--primary-lighter-color: #d6f5e3;
+	
+	--secondary-color: #f3e8ee;
+	--secondary-darker-color: #e4abc1;
+	--interactible-color: #745d42;
+	
+	--minor-title-font: 'Sofia Sans Semi Condensed', sans-serif;
+}
 
 * {
 	padding: 0;
 	margin: 0;
+	
+	font-family: 'Nunito', sans-serif;
 }
 
 body {
