@@ -21,13 +21,12 @@ const getConfig = async () => {
 		 
 		if (!root) throw "Can't select :root";
 		
-		console.log(colors);
 		Object.keys(colors).map((colorName) => {
-			console.log("name: ", colorName, " hexa: ", colors[colorName]);
 			root.style.setProperty(`--${colorName}-color`, colors[colorName]);
 		});
 	} catch(e) {
 		console.log(e);
 	}
 };
+
 getConfig();

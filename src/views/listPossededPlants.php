@@ -21,6 +21,7 @@
 	<body>
 		<?php
 			$_SESSION['user'] = 'Toto';
+			$_SESSION['connected'] = true;
 			require("ressources/html_parts/header.php");
 		?>
 		
@@ -33,26 +34,25 @@
 		<p>
 			<?php
 				global $serverName, $userName, $password, $dbName; // get global variables
-				$conn = new mysqli($serverName, $userName, $password, $dbName);
-				// Check connection
-				if ($conn->connect_error)
-					exit("Connection failed: " . $conn->connect_error);
-				else
-					echo "contact réussi de $serverName/$dbName!<br>";
 				
-				$query = "SELECT * FROM Utilisateur";
-				$result = $conn->query($query);
-				
-				if(!$result) {
-					echo "recuperation donnees impossible <br>";
-				} else {
-					while($row = $result->fetch_assoc()) {
-						 echo "uid:" . $row["uid"] . " name: " . $row["name"] ." password: " . $row["password"] .
-							" birthdate: " . $row["birthdate"] ." <br>";
-					 }
+				$conn = connectToDB($serverName, $userName, $password, $dbName);
+				if($conn) {
+					$query = "SELECT * FROM Utilisateur";
+					$result = $conn->query($query);
+					
+					if(!$result) {
+						echo "recuperation donnees impossible <br>";
+					} else {
+						while($row = $result->fetch_assoc()) {
+							 echo "uid:" . $row["uid"] . " name: " . $row["name"] ." password: " . $row["password"] .
+								" birthdate: " . $row["birthdate"] ." <br>";
+						 }
+					}
+					
+					if(disconnectFromDB($conn)) {
+						echo "GG";
+					}
 				}
-				
-				$conn->close();
 			?>
 		</p>
 		

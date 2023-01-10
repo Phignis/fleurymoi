@@ -5,7 +5,7 @@
 	$primaryLighterColor = '#d6f5e3';
 	$secondaryColor = '#f3e8ee';
 	$secondaryDarkerColor = '#e4abc1';
-	$interactibleColor = '#745d42';
+	$interactibleColor = '#776258';
 
 	$actionList = ['accueil', 'connexion', 'inscription'];
 

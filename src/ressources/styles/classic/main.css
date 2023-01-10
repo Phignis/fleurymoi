@@ -12,16 +12,19 @@
 	
 	--secondary-color: #f3e8ee;
 	--secondary-darker-color: #e4abc1;
+	
 	--interactible-color: #745d42;
 	
-	--minor-title-font: 'Sofia Sans Semi Condensed', sans-serif;
+	/* define fonts */
+	--text-font: 'Nunito', sans-serif;
+	--title-font: 'Sofia Sans Semi Condensed', sans-serif;
 }
 
 * {
 	padding: 0;
 	margin: 0;
 	
-	font-family: 'Nunito', sans-serif;
+	font-family: var(--text-font);
 }
 
 body {

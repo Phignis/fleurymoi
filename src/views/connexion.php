@@ -1,7 +1,3 @@
-<?php
-	require_once("config/config.php"); // get all global variables
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 	<head>

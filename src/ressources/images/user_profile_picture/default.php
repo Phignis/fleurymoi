@@ -1,72 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="36.909225mm"
-   height="59.94849mm"
-   viewBox="0 0 36.909225 59.94849"
-   version="1.1"
-   id="pp_account"
-   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
-   sodipodi:docname="dessin.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:document-units="mm"
-     showgrid="false"
-     width="209mm"
-     fit-margin-left="0.3"
-     fit-margin-right="0.3"
-     fit-margin-top="0.1"
-     fit-margin-bottom="0.1"
-     inkscape:zoom="0.763461"
-     inkscape:cx="204.98755"
-     inkscape:cy="451.88949"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs2">
-    <inkscape:path-effect
-       effect="bspline"
-       id="path-effect859"
-       is_visible="true"
-       lpeversion="1"
-       weight="33.333333"
-       steps="2"
-       helper_size="0"
-       apply_no_weight="true"
-       apply_with_weight="true"
-       only_selected="false" />
-  </defs>
-  <g
-     inkscape:label="Calque 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-1.8657121,-1.5325623)">
-    <path
-       style="fill:none;stroke:var(--interactible-color);stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 3.1657141,59.687934 c 0,-9.934384 0,-19.869028 5.7184505,-24.836485 5.7184504,-4.967457 17.1546254,-4.967457 22.8726974,0.11562 5.718072,5.083077 5.718072,15.248561 5.718072,25.413985"
-       id="path857"
-       inkscape:path-effect="#path-effect859"
-       inkscape:original-d="m 3.1657141,59.687934 c 2.64e-4,-9.934384 2.64e-4,-19.869028 0,-29.803942 11.4369009,2.6e-4 22.8730759,2.6e-4 34.3092199,0 2.6e-4,10.166154 2.6e-4,20.331638 0,30.497062" />
-    <circle
-       style="fill:#ffffff;fill-opacity:0;stroke:var(--interactible-color);stroke-width:1.64626;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path916"
-       cx="20.549601"
-       cy="16.148314"
-       r="13.692621" />
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" fill-rule="nonzero" id="pp_account">
+	<g fill-opacity="0" fill="#dddddd" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+		<path d="M0,256v-256h256v256z" id="bgRectangle"></path>
+	</g>
+	<g fill="var(--interactible-color)" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+		<g transform="scale(10.66667,10.66667)">
+			<path d="M12,22h-0.2c-6.2,-1.4 -8.8,-7.4 -8.8,-9.6v-8.2l0.5,-0.3c0.1,-0.1 3,-1.9 8.5,-1.9c5.5,0 8.4,1.8 8.5,1.9l0.5,0.3v8.3c0,2.2 -2.6,8.2 -8.8,9.5zM5,5.3v7.1c0,1.4 2.1,6.3 7,7.5c4.9,-1.2 7,-6.1 7,-7.5v-7.1c-1,-0.4 -3.3,-1.3 -7,-1.3c-3.7,0 -6,0.9 -7,1.3z"></path>
+			<path d="M12,3c5.3,0 8,1.7 8,1.7v7.7c0,1.9 -2.5,7.3 -8,8.6c-5.5,-1.2 -8,-6.7 -8,-8.6v-7.7c0,0 2.8,-1.7 8,-1.7" opacity="0.3"></path>
+			<path d="M7,13c0.5,0.2 0.9,0.4 1.4,0.7c0.5,0.3 0.7,0.4 1.1,0.4c0.2,0 0.3,0 0.5,0c0.2,0 0.2,-0.1 0.3,-0.1c0.2,-0.1 0.5,-0.4 0.6,-0.6l0.3,-0.4h0.5c0.2,0 0.4,0 0.6,0h0.5l0.3,0.4c0.1,0.2 0.4,0.5 0.6,0.6c0.1,0.1 0.2,0.1 0.3,0.1c0.2,0 0.3,0 0.5,0c0.4,-0.1 0.6,-0.1 1.1,-0.4c0.4,-0.2 0.9,-0.5 1.4,-0.7c-0.2,0.5 -0.4,0.9 -0.7,1.4c-0.2,0.4 -0.7,1 -1.2,1.2c-0.3,0.1 -0.6,0.2 -0.9,0.3c-0.3,0 -0.8,0 -1.1,-0.1c-0.7,-0.2 -1.2,-0.6 -1.6,-1.2l0.8,0.4c-0.2,0 -0.4,0 -0.6,0l0.8,-0.4c-0.2,0.3 -0.4,0.5 -0.7,0.7c-0.3,0.2 -0.6,0.4 -0.9,0.5c-0.3,0.1 -0.8,0.2 -1.1,0.1c-0.3,0 -0.6,-0.1 -0.9,-0.3c-0.6,-0.3 -1,-0.8 -1.2,-1.2c-0.3,-0.5 -0.5,-0.9 -0.7,-1.4zM15,9c-0.8,0 -1.5,0.4 -2,1c0.5,0.6 1.2,1 2,1c0.8,0 1.5,-0.4 2,-1c-0.5,-0.6 -1.2,-1 -2,-1zM9,9c-0.8,0 -1.5,0.4 -2,1c0.5,0.6 1.2,1 2,1c0.8,0 1.5,-0.4 2,-1c-0.5,-0.6 -1.2,-1 -2,-1zM11,18h2v2.8h-2zM14,6c-0.55228,0 -1,0.44772 -1,1c0,0.55228 0.44772,1 1,1c0.55228,0 1,-0.44772 1,-1c0,-0.55228 -0.44772,-1 -1,-1z"></path>
+			<path d="M13.3,6.3c0.4,-0.3 0.8,-0.5 1.3,-0.6c0.4,-0.2 0.9,-0.3 1.4,-0.2c0.5,0.1 0.9,0.3 1.2,0.6c0.3,0.3 0.6,0.6 0.8,0.9c-0.3,-0.2 -0.7,-0.4 -1,-0.5c-0.3,-0.1 -0.7,-0.1 -1,0c-0.3,0.1 -0.5,0.3 -0.7,0.5c-0.2,0.2 -0.5,0.5 -0.6,0.7zM10,6c-0.55228,0 -1,0.44772 -1,1c0,0.55228 0.44772,1 1,1c0.55228,0 1,-0.44772 1,-1c0,-0.55228 -0.44772,-1 -1,-1z"></path>
+			<path d="M9.3,7.7c-0.1,-0.2 -0.4,-0.5 -0.6,-0.7c-0.2,-0.2 -0.4,-0.4 -0.7,-0.5c-0.3,-0.1 -0.6,-0.1 -1,0c-0.3,0.1 -0.7,0.3 -1,0.5c0.2,-0.3 0.5,-0.6 0.8,-0.9c0.3,-0.3 0.7,-0.5 1.2,-0.6c0.5,-0.1 1,0 1.4,0.2c0.4,0.2 0.8,0.3 1.3,0.6z"></path>
+		</g>
+	</g>
 </svg>

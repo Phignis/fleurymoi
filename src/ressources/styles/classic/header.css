@@ -24,21 +24,38 @@ header #title_account {
 }
 
 header #logo_fleurYmoi {
-	width: 11rem;
+	width: 10rem;
+	padding-left: 2rem;
 }
 
 header #account {
 	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	padding-right: 2rem;
+}
+
+header #account #session_actions {
+	display: flex;
+	flex-flow: row wrap;
 	justify-content: right;
 	align-items: center;
 }
 
-header #account #pp_account {
-	height: 3rem;
+
+
+header #account #session_actions #pp_account {
+	height: 3.8rem;
+	padding-right: 3rem;
+}
+
+header #account #session_actions #exitButton {
+	height: 3.8rem;
 }
 
 header #account p {
-	color:#745d42;
+	color: var(--primary-color);
 	font-family: var(--minor-title-font);
 	font-size: 1rem;
 }
