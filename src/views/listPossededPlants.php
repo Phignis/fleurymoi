@@ -38,12 +38,16 @@
 				$conn = connectToDB($serverName, $userName, $password, $dbName);
 				if($conn) {
 					$query = "SELECT * FROM Utilisateur";
-					$result = $conn->query($query);
+					
+					$result = executeQuery($query, $conn);
+					
+					
+					//~ $result = $conn->query($query);
 					
 					if(!$result) {
 						echo "recuperation donnees impossible <br>";
 					} else {
-						while($row = $result->fetch_assoc()) {
+						foreach($result as $row) {
 							 echo "uid:" . $row["uid"] . " name: " . $row["name"] ." password: " . $row["password"] .
 								" birthdate: " . $row["birthdate"] ." <br>";
 						 }

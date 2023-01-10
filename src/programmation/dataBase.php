@@ -30,12 +30,12 @@
 		return false; // no valid datas, or there was an error when connecting to sql
 	}
 
-	function executeQuery($query) {
+	function executeQuery($query, $DBConnexion) {
 		if(isset($query) && !empty($query) && is_string($query)) {
 			
 			// TODO: Sanitize string : https://www.php.net/manual/en/mysqli.query.php
 			
-			$result = $conn->query($query);
+			$result = $DBConnexion->query($query);
 			
 			if($result) {
 				return $result->fetch_all(MYSQLI_ASSOC); // get all datas in associative array
