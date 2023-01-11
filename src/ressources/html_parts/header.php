@@ -27,11 +27,11 @@
 						
 			echo "</div>";				
 				
-			if(isset($_SESSION['user']) && !empty($_SESSION['user'])) {
-				echo "<p>" . $_SESSION['user'] . " connected!</p>";
+			if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) {
+				echo "<p>" . $_SESSION['userName'] . " connected!</p>";
 			} else {
 				?>
-					<p>user not connected</p>
+					<p>not connected</p>
 				<?php
 			}
 		?>

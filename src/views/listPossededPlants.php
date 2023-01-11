@@ -20,10 +20,12 @@
 	
 	<body>
 		<?php
-			$_SESSION['user'] = 'Toto';
-			$_SESSION['connected'] = true;
 			require("ressources/html_parts/header.php");
 		?>
+		
+		<h1 class="page_title">
+			Plantes
+		</h1>
 		
 		<p>
 			Site en construction...
@@ -37,20 +39,17 @@
 				
 				$conn = connectToDB($serverName, $userName, $password, $dbName);
 				if($conn) {
-					$query = "SELECT * FROM Utilisateur";
+					$query = "SELECT * FROM utilisateur";
 					
 					$result = executeQuery($query, $conn);
 					
 					
-					//~ $result = $conn->query($query);
 					
 					if(!$result) {
 						echo "recuperation donnees impossible <br>";
 					} else {
-						foreach($result as $row) {
-							 echo "uid:" . $row["uid"] . " name: " . $row["name"] ." password: " . $row["password"] .
-								" birthdate: " . $row["birthdate"] ." <br>";
-						 }
+							 echo "email:" . $result[0]["email"] . " name: " . $result[0]["name"] ." password: " . $result[0]["password"] .
+								" birthdate: " . $result[0]["birthdate"] ." <br>";
 					}
 					
 					if(disconnectFromDB($conn)) {

@@ -6,13 +6,6 @@
 	$secondaryColor = '#f3e8ee';
 	$secondaryDarkerColor = '#e4abc1';
 	$interactibleColor = '#776258';
-
-	$actionList = ['accueil', 'connexion', 'inscription'];
-
-	$serverName = 'localhost';
-	$userName = 'access_fleurYmoi';
-	$password = 'fleurYmoi63&';
-	$dbName = 'fleurYmoi';
 	
 	function getColors() {
 		global $primaryColor, $primaryLighterColor, $secondaryColor, $secondaryDarkerColor,
@@ -29,5 +22,17 @@
 		echo json_encode($colors); // we return to caller the colors, in JSON format
     }
 	
-	if(isset($_GET["fetchTheme"]) && $_GET["fetchTheme"] == true) // run func only if contact is to fetch theme
+	if(isset($_GET["fetchTheme"]) && $_GET["fetchTheme"] == true) // run func only if contact is to fetch theme, requested by get
 		getColors();
+
+	
+
+	$actionList = ['accueil', 'connexion', 'inscription', 'sessionCreate'];
+
+	$serverName = 'localhost';
+	$userName = 'access_fleurYmoi';
+	$password = 'fleurYmoi63&';
+	$dbName = 'fleurYmoi';
+
+
+	$errors = [];
