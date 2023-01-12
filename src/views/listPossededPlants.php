@@ -16,6 +16,7 @@
 		
 		<link rel="stylesheet" href="ressources/styles/classic/main.css">
 		<link rel="stylesheet" href="ressources/styles/classic/header.css">
+		
 	</head>
 	
 	<body>

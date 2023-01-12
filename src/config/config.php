@@ -27,7 +27,7 @@
 
 	
 
-	$actionList = ['accueil', 'connexion', 'inscription', 'sessionCreate'];
+	$actionList = ['accueil', 'connexion', 'deconnexion', 'inscription', 'sessionCreate'];
 
 	$serverName = 'localhost';
 	$userName = 'access_fleurYmoi';
@@ -35,4 +35,5 @@
 	$dbName = 'fleurYmoi';
 
 
-	$errors = [];
+	$errors = []; // table having all success messages related to request
+	$success = []; // table having all success messages related to request

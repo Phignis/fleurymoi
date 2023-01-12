@@ -2,6 +2,8 @@
 
 	function disconnect() {
 		unset($_SESSION['profile_picture']);
+		global $success;
+		$success[] = $_SESSION['userName'] ?? 'utilisateur' . ' déconnecté';
 		unset($_SESSION['userName']);
 		unset($_SESSION['isBirthdayToday']);
 		$_SESSION['connected'] = false;

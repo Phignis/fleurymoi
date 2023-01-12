@@ -32,7 +32,7 @@
 					break;
 				case 'sessionCreate':
 					global $serverName, $userName, $password, $dbName; // get global variables
-					require("./programmation/session.php");
+					require("./config/session.php");
 					if(connect($serverName, $userName, $password, $dbName, $_REQUEST["email"], $_REQUEST["password"])) {
 						//success
 						require('./views/listPossededPlants.php');
@@ -41,6 +41,12 @@
 						//error occured, errors contains error message
 						echo $errors[0];
 					}
+					break;
+				case 'deconnexion' :
+					require("./config/session.php");
+					
+					disconnect();
+					require('./views/listPossededPlants.php');
 					break;
 			}
 		} else {
