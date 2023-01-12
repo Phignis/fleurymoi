@@ -1,0 +1,22 @@
+.connexion_part {
+	width: 80%;
+	padding: 1rem 2rem;
+}
+
+.connexion_part > *:first-child {
+	padding-right: 3rem;
+	border-right: 0.3rem solid var(--primary-color);
+	border-radius: 0.3rem;
+}
+
+.connexion_part > *:last-child {
+	padding-left: 2rem;
+}
+
+#connect_form .spaced {
+	padding: 0.5rem 0rem;
+}
+
+#connect_button {
+	padding: 0.1rem 0.2rem;
+}

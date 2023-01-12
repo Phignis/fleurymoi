@@ -16,49 +16,30 @@
 		
 		<link rel="stylesheet" href="ressources/styles/classic/main.css">
 		<link rel="stylesheet" href="ressources/styles/classic/header.css">
+		
 	</head>
 	
 	<body>
 		<?php
-			$_SESSION['user'] = 'Toto';
-			$_SESSION['connected'] = true;
 			require("ressources/html_parts/header.php");
 		?>
 		
-		<p>
-			Site en construction...
-		</p>
+		<section id="page_content">
 		
-		<hr>
-		<h3>Liste des utilisateurs déjà inscrits (que faites vous là? il n'y a rien!)</h3>
-		<p>
-			<?php
-				global $serverName, $userName, $password, $dbName; // get global variables
+			<h1 class="page_title">
+				Plantes
+			</h1>
+			
+			<p>
+				Site en construction...
+			</p>
+			
+			<hr>
+			<h3>Liste des utilisateurs déjà inscrits (que faites vous là? il n'y a rien!)</h3>
+			<p>
 				
-				$conn = connectToDB($serverName, $userName, $password, $dbName);
-				if($conn) {
-					$query = "SELECT * FROM Utilisateur";
-					
-					$result = executeQuery($query, $conn);
-					
-					
-					//~ $result = $conn->query($query);
-					
-					if(!$result) {
-						echo "recuperation donnees impossible <br>";
-					} else {
-						foreach($result as $row) {
-							 echo "uid:" . $row["uid"] . " name: " . $row["name"] ." password: " . $row["password"] .
-								" birthdate: " . $row["birthdate"] ." <br>";
-						 }
-					}
-					
-					if(disconnectFromDB($conn)) {
-						echo "GG";
-					}
-				}
-			?>
-		</p>
+			</p>
+		</section>
 		
 		<?php include("ressources/html_parts/footer.php"); // we can print page without footer (no important infos) ?>
 	</body>

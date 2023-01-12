@@ -38,7 +38,7 @@
 			$result = $DBConnexion->query($query);
 			
 			if($result) {
-				return $result->fetch_all(MYSQLI_ASSOC); // get all datas in associative array
+				return ($result instanceof bool) ? $result : $result->fetch_all(MYSQLI_ASSOC); // get all datas in associative array
 			}
 		}
 		return false;
