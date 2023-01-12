@@ -14,7 +14,7 @@
 		
 		// switch sur les actions possibles
 		
-		global $actionList;
+		global $actionList, $errors, $success;
 		
 		if (in_array($_REQUEST['action'], $actionList)){
 			switch($_REQUEST['action']) {
@@ -44,26 +44,21 @@
 					
 						// unpack array returned by formatAsQueryArgs
 						if(!createUser($conn, ...$args)) {
-								global $errors;
 								// error occured, errors contains error message
-								$errors[0] = "utilisateur non créé!";
+								// add effect of this error
+								$errors[] = "utilisateur non créé!";
 						}
 						
 						if(connect($conn,
 							...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
 							// success
 							require('./views/listPossededPlants.php');
-						} else {
-							global $errors;
-							// error occured, errors contains error message
 						}
 						
 						disconnectFromDB($conn);
 						
 					} else {
-						global $errors;
-								// error occured, errors contains error message
-						$errors[0] = "Impossible de se connecter à la BDD pour l'instant";
+						$errors[0] = "Impossible de se connecter à la base de données pour l'instant";
 					}
 					break;
 					
@@ -75,20 +70,14 @@
 					
 					if($conn) {
 						
-						// format password is not necessary, but unpacking operation has to be the last
+						// format password is not necessary, but unpacking operation has to be last param
 						if(connect($conn, ...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
 							// success
 							require('./views/listPossededPlants.php');
-						} else {
-							global $errors;
-							// error occured, errors contains error message
-							echo $errors[0];
 						}
 						disconnectFromDB($conn);
 					} else {
-						global $errors;
-						// error occured, errors contains error message
-						$errors[0] = "Impossible de se connecter à la BDD pour l'instant";
+						$errors[] = "Impossible de se connecter à la base de données pour l'instant";
 					}
 					break;
 			}
@@ -96,4 +85,5 @@
 			// TODO: erreur action non reconnu
 			$errors[] = "Action non reconnue, mauvaise addresse.";
 		}
+		
 	}

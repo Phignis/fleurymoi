@@ -14,12 +14,17 @@
 		if(isset($emailNewUser) && isset($passwordNewUser) && isset($nameNewUser)) {
 			$query = "INSERT INTO utilisateur VALUES($emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture)";
 			$result = executeQuery($query, $dbConnexion);
+			var_dump($result);
+			exit(0);
 			if($result) {
 				return true;
+			} else {
+				global $errors;
+				$errors[] = "mail déjà utilisé";
 			}
 		} else {
 			global $errors;
-			$errors[] = "Informations données incorrectes";
+			$errors[] = "Informations manqueantes";
 			// TODO: afficher une vue erreur avec le tableau d'afficher
 		}
 		return false;
