@@ -37,29 +37,7 @@
 			<hr>
 			<h3>Liste des utilisateurs déjà inscrits (que faites vous là? il n'y a rien!)</h3>
 			<p>
-				<?php
-					global $serverName, $userName, $password, $dbName; // get global variables
-					
-					$conn = connectToDB($serverName, $userName, $password, $dbName);
-					if($conn) {
-						$query = "SELECT * FROM utilisateur";
-						
-						$result = executeQuery($query, $conn);
-						
-						
-						
-						if(!$result) {
-							echo "recuperation donnees impossible <br>";
-						} else {
-								 echo "email:" . $result[0]["email"] . " name: " . $result[0]["name"] ." password: " . $result[0]["password"] .
-									" birthdate: " . $result[0]["birthdate"] ." <br>";
-						}
-						
-						if(disconnectFromDB($conn)) {
-							echo "GG";
-						}
-					}
-				?>
+				
 			</p>
 		</section>
 		

@@ -1,15 +1,6 @@
 <?php
-
-	function getPlantOf($user) {
-		// get datas
-		
-		// require listPossededPlants, which will no longer get datas
-		require('./views/listPossededPlants.php');
-		
-		return;
-	}
 	
-	function menu() {
+	function menu() : void {
 		
 		if(session_status() == PHP_SESSION_NONE) session_start(); // on start la session si non existante, pour utiliser le tableau $_SESSION
 		
@@ -46,35 +37,58 @@
 					global $serverName, $userName, $password, $dbName; // get global variables
 					require("./config/session.php");
 					
-					if(!createUser($serverName, $userName, $password, $dbName,
-						$_REQUEST["email"], $_REQUEST["name"], $_REQUEST["password"],
-						$_REQUEST["birthdate"], NULL)) {
+					$conn = connectToDB($serverName, $userName, $password, $dbName);
+					if($conn) {
+						$args = formatAsQueryArgs($_REQUEST["email"], $_REQUEST["name"], $_REQUEST["password"],
+							$_REQUEST["birthdate"], null);
+					
+						// unpack array returned by formatAsQueryArgs
+						if(!createUser($conn, ...$args)) {
+								global $errors;
+								// error occured, errors contains error message
+								$errors[0] = "utilisateur non créé!";
+						}
+						
+						if(connect($conn,
+							...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
+							// success
+							require('./views/listPossededPlants.php');
+						} else {
 							global $errors;
 							// error occured, errors contains error message
-							$errors[0] = "utilisateur non créé!";
 						}
-					
-					if(connect($serverName, $userName, $password, $dbName,
-						$_REQUEST["email"], $_REQUEST["password"])) {
-						// success
-						require('./views/listPossededPlants.php');
+						
+						disconnectFromDB($conn);
+						
 					} else {
 						global $errors;
-						// error occured, errors contains error message
-						echo $errors[0];
+								// error occured, errors contains error message
+						$errors[0] = "Impossible de se connecter à la BDD pour l'instant";
 					}
 					break;
 					
 				case 'sessionCreate':
 					global $serverName, $userName, $password, $dbName; // get global variables
 					require("./config/session.php");
-					if(connect($serverName, $userName, $password, $dbName, $_REQUEST["email"], $_REQUEST["password"])) {
-						// success
-						require('./views/listPossededPlants.php');
+					
+					$conn = connectToDB($serverName, $userName, $password, $dbName);
+					
+					if($conn) {
+						
+						// format password is not necessary, but unpacking operation has to be the last
+						if(connect($conn, ...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
+							// success
+							require('./views/listPossededPlants.php');
+						} else {
+							global $errors;
+							// error occured, errors contains error message
+							echo $errors[0];
+						}
+						disconnectFromDB($conn);
 					} else {
 						global $errors;
 						// error occured, errors contains error message
-						echo $errors[0];
+						$errors[0] = "Impossible de se connecter à la BDD pour l'instant";
 					}
 					break;
 			}

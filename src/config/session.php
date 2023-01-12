@@ -1,6 +1,6 @@
 <?php
 
-	function disconnect() {
+	function disconnect() : void {
 		unset($_SESSION['profile_picture']);
 		global $success;
 		$success[] = $_SESSION['userName'] ?? 'utilisateur' . ' déconnecté';
@@ -9,41 +9,36 @@
 		$_SESSION['connected'] = false;
 	}
 
-	function createUser($serverDBName, $userNameDB, $passwordDB, $DBName, $emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture) {
-		$dbContact = connectToDB($serverDBName, $userNameDB, $passwordDB, $DBName);
-		
-		if($dbContact&& isset($emailNewUser) && isset($passwordNewUser) && isset($nameNewUser))
+	function createUser($dbConnexion, $emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture) {
 
-		if($dbContact && isset($emailNewUser) && isset($passwordNewUser) && isset($nameNewUser)) {
-			$nameNewUser = $nameNewUser ?? "defaultUser";
-			$birthNewUser = $birthNewUser ?? "NULL";
-			$pathPicture = $pathPicture ?? "NULL";
-			$query = "INSERT INTO utilisateur VALUES('$emailNewUser', '$nameNewUser', '$passwordNewUser', '$birthNewUser', '$pathPicture')";
-			$result = executeQuery($query, $dbContact);
+		if(isset($emailNewUser) && isset($passwordNewUser) && isset($nameNewUser)) {
+			$query = "INSERT INTO utilisateur VALUES($emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture)";
+			$result = executeQuery($query, $dbConnexion);
 			if($result) {
 				return true;
 			}
 		} else {
 			global $errors;
-			$errors[] = "Connexion à la base de donnée temporairement impossible";
+			$errors[] = "Informations données incorrectes";
 			// TODO: afficher une vue erreur avec le tableau d'afficher
 		}
 		return false;
 	}
 
-	function connect($serverDBName, $userNameDB, $passwordDB, $DBName, $emailUser, $passwordUser) {
-		$dbContact = connectToDB($serverDBName, $userNameDB, $passwordDB, $DBName);
+	function connect(mysqli $dbConnexion, string $emailUser, string $passwordUser) : bool {
 
-		if($dbContact && isset($emailUser) && isset($passwordUser)) {
+		if(isset($emailUser) && isset($passwordUser)) {
 			
-			$result = executeQuery("SELECT * FROM utilisateur WHERE email='$emailUser'", $dbContact); // get user account if existing
+			$result = executeQuery("SELECT * FROM utilisateur WHERE email=$emailUser", $dbConnexion); // get user account if existing
 			
-			if($result && count($result) == 1 && $result[0]["password"] == $passwordUser) {
+			if($result && count($result) == 1 && $result[0]["password"] == unformatFromQueryArgs($passwordUser)[0]) {
 				$_SESSION['connected'] = true;
 				// TODO: determine if it's birday'
 				$_SESSION['isBirthdayToday'] = false;
 				$_SESSION['userName'] = $result[0]["name"];
 				$_SESSION['profile_picture'] = $result[0]["path_profile_picture"];
+				
+				
 				
 				return true;
 				
@@ -52,11 +47,11 @@
 				$errors[] = "Pas de correspondance d'utilisateur avec l'email $emailUser, ou le mot de passe";
 			}
 			
-			disconnectFromDB($dbContact);
+			//~ disconnectFromDB($dbConnexion);
 			
 		} else {
 			global $errors;
-			$errors[] = "Connexion à la base de donnée temporairement impossible";
+			$errors[] = "Informations données incorrectes";
 			// TODO: afficher une vue erreur avec le tableau d'afficher
 		}
 		
