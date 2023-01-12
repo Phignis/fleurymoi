@@ -1,5 +1,10 @@
 const getConfig = async () => {
 	try {
+		
+		const root = document.querySelector(":root");
+		 
+		if (!root) throw "Can't select :root";
+		
 		// Set page in loading state and show loader
 		const res = await fetch(
 			"/config/config.php?" +
@@ -14,12 +19,6 @@ const getConfig = async () => {
 		
 	
 		if (!colors) throw "No config fetched";
-		
-		// We have the config object
-		 
-		const root = document.querySelector(":root");
-		 
-		if (!root) throw "Can't select :root";
 		
 		Object.keys(colors).map((colorName) => {
 			root.style.setProperty(`--${colorName}-color`, colors[colorName]);

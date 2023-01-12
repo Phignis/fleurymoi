@@ -15,6 +15,9 @@
 	
 	--interactible-color: #745d42;
 	
+	--link-default-color: #189fa8;
+	--link-default-darker-color: #117278;
+	
 	/* define fonts */
 	--text-font: 'Nunito', sans-serif;
 	--title-font: 'Sofia Sans Semi Condensed', sans-serif;
@@ -34,6 +37,17 @@ body {
 	align-items: center;
 }
 
+#page_content {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 0rem 1rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
 .page_title {
 	font-family: var(--title-font);
 	font-weight: bold;
@@ -41,4 +55,25 @@ body {
 	color: var(--primary-color);
 	text-decoration-color: var(--secondary-darker-color);
 	font-size: 3rem;
+}
+
+.legend {
+	font-size: 0.6rem;
+}
+
+.link-default {
+	font-family: var(--text-font);
+	color:var(--link-default-color);
+}
+
+.link-default:hover {
+	color:var(--interactible-color);
+}
+
+.link-default:active {
+	color:var(--secondary-darker-color);
+}
+
+.link-default:visited {
+	color:var(--link-default-darker-color);
 }

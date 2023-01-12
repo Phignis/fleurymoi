@@ -24,41 +24,44 @@
 			require("ressources/html_parts/header.php");
 		?>
 		
-		<h1 class="page_title">
-			Plantes
-		</h1>
+		<section id="page_content">
 		
-		<p>
-			Site en construction...
-		</p>
-		
-		<hr>
-		<h3>Liste des utilisateurs déjà inscrits (que faites vous là? il n'y a rien!)</h3>
-		<p>
-			<?php
-				global $serverName, $userName, $password, $dbName; // get global variables
-				
-				$conn = connectToDB($serverName, $userName, $password, $dbName);
-				if($conn) {
-					$query = "SELECT * FROM utilisateur";
+			<h1 class="page_title">
+				Plantes
+			</h1>
+			
+			<p>
+				Site en construction...
+			</p>
+			
+			<hr>
+			<h3>Liste des utilisateurs déjà inscrits (que faites vous là? il n'y a rien!)</h3>
+			<p>
+				<?php
+					global $serverName, $userName, $password, $dbName; // get global variables
 					
-					$result = executeQuery($query, $conn);
-					
-					
-					
-					if(!$result) {
-						echo "recuperation donnees impossible <br>";
-					} else {
-							 echo "email:" . $result[0]["email"] . " name: " . $result[0]["name"] ." password: " . $result[0]["password"] .
-								" birthdate: " . $result[0]["birthdate"] ." <br>";
+					$conn = connectToDB($serverName, $userName, $password, $dbName);
+					if($conn) {
+						$query = "SELECT * FROM utilisateur";
+						
+						$result = executeQuery($query, $conn);
+						
+						
+						
+						if(!$result) {
+							echo "recuperation donnees impossible <br>";
+						} else {
+								 echo "email:" . $result[0]["email"] . " name: " . $result[0]["name"] ." password: " . $result[0]["password"] .
+									" birthdate: " . $result[0]["birthdate"] ." <br>";
+						}
+						
+						if(disconnectFromDB($conn)) {
+							echo "GG";
+						}
 					}
-					
-					if(disconnectFromDB($conn)) {
-						echo "GG";
-					}
-				}
-			?>
-		</p>
+				?>
+			</p>
+		</section>
 		
 		<?php include("ressources/html_parts/footer.php"); // we can print page without footer (no important infos) ?>
 	</body>

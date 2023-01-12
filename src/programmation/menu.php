@@ -27,26 +27,55 @@
 		
 		if (in_array($_REQUEST['action'], $actionList)){
 			switch($_REQUEST['action']) {
+				case 'inscription':
+					require('./views/inscription.php');
+					break;
+					
 				case 'connexion':
 					require('./views/connexion.php');
 					break;
-				case 'sessionCreate':
-					global $serverName, $userName, $password, $dbName; // get global variables
-					require("./config/session.php");
-					if(connect($serverName, $userName, $password, $dbName, $_REQUEST["email"], $_REQUEST["password"])) {
-						//success
-						require('./views/listPossededPlants.php');
-					} else {
-						global $errors;
-						//error occured, errors contains error message
-						echo $errors[0];
-					}
-					break;
+					
 				case 'deconnexion' :
 					require("./config/session.php");
 					
 					disconnect();
 					require('./views/listPossededPlants.php');
+					break;
+					
+				case 'newInscription' :
+					global $serverName, $userName, $password, $dbName; // get global variables
+					require("./config/session.php");
+					
+					if(!createUser($serverName, $userName, $password, $dbName,
+						$_REQUEST["email"], $_REQUEST["name"], $_REQUEST["password"],
+						$_REQUEST["birthdate"], NULL)) {
+							global $errors;
+							// error occured, errors contains error message
+							$errors[0] = "utilisateur non créé!";
+						}
+					
+					if(connect($serverName, $userName, $password, $dbName,
+						$_REQUEST["email"], $_REQUEST["password"])) {
+						// success
+						require('./views/listPossededPlants.php');
+					} else {
+						global $errors;
+						// error occured, errors contains error message
+						echo $errors[0];
+					}
+					break;
+					
+				case 'sessionCreate':
+					global $serverName, $userName, $password, $dbName; // get global variables
+					require("./config/session.php");
+					if(connect($serverName, $userName, $password, $dbName, $_REQUEST["email"], $_REQUEST["password"])) {
+						// success
+						require('./views/listPossededPlants.php');
+					} else {
+						global $errors;
+						// error occured, errors contains error message
+						echo $errors[0];
+					}
 					break;
 			}
 		} else {
