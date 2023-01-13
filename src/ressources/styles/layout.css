@@ -33,11 +33,19 @@
 	align-items: center;
 }
 
-.fixed-top {
+.fixed-top-center {
 	position: fixed;
 	top: 9rem;
 	left: auto;
 	right: auto;
+	padding: 0.7rem 1.5rem;
+}
+
+.fixed-top-right {
+	position: fixed;
+	top: 9rem;
+	left: auto;
+	right: 1.5rem;
 	padding: 0.7rem 1.5rem;
 }
 

@@ -84,16 +84,18 @@ body {
 
 .message {
 	display: block;
-	padding: 0.5rem 0.3rem;
+	padding: 0.5rem;
 	border: 0.12rem solid var(--interactible-color);
 	border-radius: 0.6rem;
 	text-align: center;
-	animation: fadeIn 400ms;
 	margin-bottom: 0.2rem;
+	animation: fadeSlideInRight 400ms;
+	font-weight: bold;
+	text-transform: capitalize; /* setup all first letter of word as capital*/
 }
 
 .message-out {
-	animation: fadeOut 400ms;
+	animation: fadeSlideOutRight 400ms;
 }
 
 .success {
@@ -104,20 +106,28 @@ body {
 	background-color: var(--error-color);
 }
 
-@keyframes fadeIn {
+@keyframes fadeSlideInRight {
 	from {
 		opacity: 0;
+		margin-left: 100%;
+		width: 100%;
 	}
 	to {
 		opacity : 1;
+		margin-left: 0%;
+		width: 100%;
 	}
 }
 
-@keyframes fadeOut {
+@keyframes fadeSlideOutRight {
 	from {
 		opacity: 1;
+		margin-left: 0%;
+		width: 100%;
 	}
 	to {
 		opacity : 0;
+		margin-left: 100%;
+		width: 150%;
 	}
 }

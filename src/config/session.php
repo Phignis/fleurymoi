@@ -24,8 +24,7 @@
 			}
 		} else {
 			global $errors;
-			$errors[] = "Informations manqueantes";
-			// TODO: afficher une vue erreur avec le tableau d'afficher
+			$errors[] = "Informations manquantes";
 		}
 		return false;
 	}
@@ -49,7 +48,7 @@
 				
 			} else { // prefer to make else more general, to not inform that a email has been found with separated message if password bad
 				global $errors;
-				$errors[] = "Pas de correspondance d'utilisateur avec l'email $emailUser, ou le mot de passe";
+				$errors[] = "Compte inconnu. Connexion impossible";
 			}
 			
 			//~ disconnectFromDB($dbConnexion);

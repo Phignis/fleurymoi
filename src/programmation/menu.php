@@ -52,12 +52,14 @@
 							...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
 							$success[] = "Inscription réussie";
 							require('./views/listPossededPlants.php');
+						} else {
+							require("views/inscription.php");
 						}
 						
 						disconnectFromDB($conn);
 						
 					} else {
-						$errors[] = "Impossible de se connecter à la base de données pour l'instant";
+						$errors[] = "Connexion à la base de donnée impossible";
 						require("views/inscription.php");
 					}
 					break;
@@ -80,7 +82,7 @@
 						}
 						disconnectFromDB($conn);
 					} else {
-						$errors[] = "Impossible de se connecter à la base de données pour l'instant";
+						$errors[] = "Connexion à la base de donnée impossible";
 						require("views/connexion.php");
 					}
 					break;
