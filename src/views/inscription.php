@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>Connexion</title>
+		<title>Inscription</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
@@ -20,6 +20,9 @@
 	
 	<body>
 		<?php require("ressources/html_parts/header.php"); ?>
+		
+		
+		<section id="messages" class="hidden"></section>
 		
 		<section id="page_content" class="flex-column-start-left">
 			<h1 class="page_title">
@@ -50,7 +53,9 @@
 		
 		
 		<hr>
-		<?php include("ressources/html_parts/footer.php");?>
+		<?php include("ressources/html_parts/footer.php"); ?>
+		
+		<?php include("ressources/js/displayMessages.php"); ?>
 	</body>
 </html>
 

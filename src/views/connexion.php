@@ -21,6 +21,8 @@
 	<body>
 		<?php require("ressources/html_parts/header.php"); ?>
 		
+		<section id="messages" class="hidden"></section>
+		
 		<section id="page_content" class="flex-column-start-left">
 			<h1 class="page_title">
 				Connexion
@@ -49,5 +51,7 @@
 		
 		<hr>
 		<?php include("ressources/html_parts/footer.php");?>
+		
+		<?php include("ressources/js/displayMessages.php"); ?>
 	</body>
 </html>

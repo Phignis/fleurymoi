@@ -15,6 +15,7 @@
 		
 		
 		<link rel="stylesheet" href="ressources/styles/classic/main.css">
+		<link rel="stylesheet" href="ressources/styles/layout.css">
 		<link rel="stylesheet" href="ressources/styles/classic/header.css">
 		
 	</head>
@@ -23,6 +24,8 @@
 		<?php
 			require("ressources/html_parts/header.php");
 		?>
+		
+		<section id="messages" class="hidden"></section>
 		
 		<section id="page_content">
 		
@@ -42,5 +45,8 @@
 		</section>
 		
 		<?php include("ressources/html_parts/footer.php"); // we can print page without footer (no important infos) ?>
+		
+		<?php include("ressources/js/displayMessages.php"); ?>
+		
 	</body>
 </html>
