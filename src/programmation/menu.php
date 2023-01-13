@@ -75,6 +75,8 @@
 							// success
 							$success[] = "connexion reussie";
 							require('./views/listPossededPlants.php');
+						} else {
+							require('./views/connexion.php');
 						}
 						disconnectFromDB($conn);
 					} else {
