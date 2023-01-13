@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>Connexion</title>
+		<title>Inscription</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
@@ -20,6 +20,9 @@
 	
 	<body>
 		<?php require("ressources/html_parts/header.php"); ?>
+		
+		
+		<section id="messages" class="hidden"></section>
 		
 		<section id="page_content" class="flex-column-start-left">
 			<h1 class="page_title">
@@ -51,6 +54,52 @@
 		
 		<hr>
 		<?php include("ressources/html_parts/footer.php");?>
+		
+		<script>
+			let errors = <?php echo json_encode($errors)?>;
+			let success = <?php echo json_encode($success)?>;
+			
+			// create a paragraph containing the message
+			const createMessage = (content) => {
+				let toReturn = document.createElement('p');
+				toReturn.innerText = content;
+				toReturn.classList.add("message");
+				return toReturn;
+			}
+			
+			if(errors.length || success.length) { // we have messages to display
+				let messSec = document.getElementById("messages");
+				
+				messSec.classList.remove("hidden");
+				messSec.classList.add("fixed-top");
+				
+				errors.forEach((message) => {
+					let para = createMessage(message);
+					para.classList.add("error");
+					messSec.appendChild(para);
+					setTimeout(() => {
+						para.classList.add("message-out");
+						para.style.opacity = 0;
+					}, 3000);
+				});
+				success.forEach((message) => {
+					let para = createMessage(message);
+					para.classList.add("success");
+					messSec.appendChild(para);
+					setTimeout(() => {
+						para.classList.add("message-out");
+						para.style.opacity = 0;
+					}, 3000);
+				});
+				
+				<?php
+					// clean up arrays, to make sure to not display it again later during transaction
+					// useful if we save arrays in $_SESSION for future display
+					$errors = [];
+					$success = [];
+				 ?>
+			}
+		</script>
 	</body>
 </html>
 

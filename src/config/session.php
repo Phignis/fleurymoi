@@ -3,7 +3,9 @@
 	function disconnect() : void {
 		unset($_SESSION['profile_picture']);
 		global $success;
-		$success[] = $_SESSION['userName'] ?? 'utilisateur' . ' déconnecté';
+		$str = $_SESSION['userName'] ?? 'utilisateur';
+		$str = $str . ' déconnecté';
+		$success[] = $str;
 		unset($_SESSION['userName']);
 		unset($_SESSION['isBirthdayToday']);
 		$_SESSION['connected'] = false;
@@ -14,8 +16,6 @@
 		if(isset($emailNewUser) && isset($passwordNewUser) && isset($nameNewUser)) {
 			$query = "INSERT INTO utilisateur VALUES($emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture)";
 			$result = executeQuery($query, $dbConnexion);
-			var_dump($result);
-			exit(0);
 			if($result) {
 				return true;
 			} else {

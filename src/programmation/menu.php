@@ -4,7 +4,6 @@
 		
 		if(session_status() == PHP_SESSION_NONE) session_start(); // on start la session si non existante, pour utiliser le tableau $_SESSION
 		
-		
 		if(!isset($_REQUEST['action']) || empty($_REQUEST['action'])) { // on arrive pour la première fois sur le site, on arrive sur l'accueil
 			// request seach in both $_GET and $_POST
 			require('./views/listPossededPlants.php');
@@ -51,14 +50,15 @@
 						
 						if(connect($conn,
 							...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
-							// success
+							$success[] = "Inscription réussie";
 							require('./views/listPossededPlants.php');
 						}
 						
 						disconnectFromDB($conn);
 						
 					} else {
-						$errors[0] = "Impossible de se connecter à la base de données pour l'instant";
+						$errors[] = "Impossible de se connecter à la base de données pour l'instant";
+						require("views/inscription.php");
 					}
 					break;
 					
@@ -73,17 +73,21 @@
 						// format password is not necessary, but unpacking operation has to be last param
 						if(connect($conn, ...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
 							// success
+							$success[] = "connexion reussie";
 							require('./views/listPossededPlants.php');
 						}
 						disconnectFromDB($conn);
 					} else {
 						$errors[] = "Impossible de se connecter à la base de données pour l'instant";
+						require("views/connexion.php");
 					}
 					break;
 			}
 		} else {
 			// TODO: erreur action non reconnu
 			$errors[] = "Action non reconnue, mauvaise addresse.";
+			require("view/listPossededPlants.php");
 		}
+		
 		
 	}

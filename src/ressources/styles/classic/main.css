@@ -18,6 +18,9 @@
 	--link-default-color: #189fa8;
 	--link-default-darker-color: #117278;
 	
+	--success-color: #b8ddab;
+	--error-color: #f48282;
+	
 	/* define fonts */
 	--text-font: 'Nunito', sans-serif;
 	--title-font: 'Sofia Sans Semi Condensed', sans-serif;
@@ -68,6 +71,7 @@ body {
 
 .link-default:hover {
 	color:var(--interactible-color);
+	transition: color 200ms linear;
 }
 
 .link-default:active {
@@ -76,4 +80,44 @@ body {
 
 .link-default:visited {
 	color:var(--link-default-darker-color);
+}
+
+.message {
+	display: block;
+	padding: 0.5rem 0.3rem;
+	border: 0.12rem solid var(--interactible-color);
+	border-radius: 0.6rem;
+	text-align: center;
+	animation: fadeIn 400ms;
+	margin-bottom: 0.2rem;
+}
+
+.message-out {
+	animation: fadeOut 400ms;
+}
+
+.success {
+	background-color: var(--success-color);
+}
+
+.error {
+	background-color: var(--error-color);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity : 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity : 0;
+	}
 }

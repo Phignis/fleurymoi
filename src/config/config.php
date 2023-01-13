@@ -6,21 +6,25 @@
 	$secondaryColor = '#f3e8ee';
 	$secondaryDarkerColor = '#e4abc1';
 	$interactibleColor = '#776258';
-	$linkDefault = '#189fa8';
-	$linkDefaultDarker = '#117278';
+	$linkDefaultColor = '#189fa8';
+	$linkDefaultDarkerColor = '#117278';
+	$successColor = '#b8ddab';
+	$errorColor = '#f48282';
 	
 	function getColors() {
 		global $primaryColor, $primaryLighterColor, $secondaryColor, $secondaryDarkerColor,
-			$interactibleColor, $linkDefault, $linkDefaultDarker;
+			$interactibleColor, $linkDefaultColor, $linkDefaultDarkerColor, $successColor, $errorColor;
 		// format all var to an object
 		$colors = array(
-			"primary" => $primaryColor,
-			"primary-lighter" => $primaryLighterColor,
-			"secondary" => $secondaryColor,
-			"secondary-darker" => $secondaryDarkerColor,
-			"interactible" => $interactibleColor,
-			"link-default" => $linkDefault,
-			"link-default-darker" => $linkDefaultDarker
+			'primary' => $primaryColor,
+			'primary-lighter' => $primaryLighterColor,
+			'secondary' => $secondaryColor,
+			'secondary-darker' => $secondaryDarkerColor,
+			'interactible' => $interactibleColor,
+			'link-default' => $linkDefaultColor,
+			'link-default-darker' => $linkDefaultDarkerColor,
+			'success' => $successColor,
+			'error' => $errorColor
 		);
 		
 		echo json_encode($colors); // we return to caller the colors, in JSON format
@@ -39,5 +43,5 @@
 	$dbName = 'fleurYmoi';
 
 
-	$errors = []; // table having all success messages related to request
-	$success = []; // table having all success messages related to request
+	$errors = []; // table having all errors messages related to requests
+	$success = []; // table having all success messages related to requests
