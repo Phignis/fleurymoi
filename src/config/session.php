@@ -12,11 +12,10 @@
 		$_SESSION['connected'] = false;
 	}
 
-	function createUser(mysqli $dbConnexion, string $passwordNewUser, string $emailNewUser, string $nameNewUser, string $birthNewUser, string $pathPicture) {
+	function createUser(mysqli $dbConnexion, string $passwordNewUser, string $emailNewUser, string $nameNewUser, string $birthNewUser, string $pathPicture) : bool {
 		// password before other elements cause other should be formated with formatAsQueryArgs -> can use unpack sugar syntax in call
 
 		if(empty($emailNewUser) ||  empty($passwordNewUser) || empty($nameNewUser)) {
-			 else {
 			global $errors;
 			$errors[] = "Informations manquantes";
 		} else {
@@ -77,9 +76,9 @@
 			} else { // prefer to make else more general, to not inform that a email has been found with separated message if password bad
 				global $errors;
 				$errors[] = "email déjà utilisé pour un autre compte";
-				return false;
 			}
 		}
+		return false;
 	}
 
 	function connect(mysqli $dbConnexion, string $emailUser, string $passwordUser) : bool {
