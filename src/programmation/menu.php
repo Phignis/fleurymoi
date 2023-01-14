@@ -85,7 +85,7 @@
 						if($conn) {
 							
 							// format password is not necessary, but unpacking operation has to be last param
-							if(connect($conn, ...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
+							if(connect($null, ...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
 								// success
 								$success[] = "connexion reussie";
 								require('./views/listPossededPlants.php');
