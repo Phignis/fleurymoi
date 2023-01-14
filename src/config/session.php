@@ -12,11 +12,19 @@
 		$_SESSION['connected'] = false;
 	}
 
-	function createUser($dbConnexion, $emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture) {
+	function createUser($dbConnexion, $passwordNewUser, $emailNewUser, $nameNewUser, $birthNewUser, $pathPicture) {
+		// password before other elements cause other should be formated with formatAsQueryArgs -> can use unpack sugar syntax in call
 
 		if(isset($emailNewUser) && isset($passwordNewUser) && isset($nameNewUser)) {
 			// TODO: check sql injection & if data are valid
-			$query = "INSERT INTO user_t VALUES($emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture)";
+			/*
+			 * password_hash($passwordUser, PASSWORD_BCRYPT) encode using bcrypt.
+			 * All datas necessary to check equality (algorithm, salt)
+			 * are attached to resulting string.
+			 * Salt is by default integrated. Deprecated to setup custom salt from 7.0,
+			 * custom salt ignored from 8.0
+			*/
+			$query = "INSERT INTO user_t VALUES($emailNewUser, $nameNewUser, '" . password_hash($passwordNewUser, PASSWORD_BCRYPT) . "', $birthNewUser, $pathPicture)";
 			$result = executeQuery($query, $dbConnexion);
 			if($result) {
 				return true;
@@ -35,15 +43,13 @@
 		if(isset($_SESSION["email"]) && !empty($_SESSION["email"])) {
 			// TODO: check sql injection & if data are valid
 			
-			var_dump($birthUser);
-			
 			$query = "UPDATE user_t SET email='";
 			$query .= (isset($emailUser) && !empty($emailUser)) ? $emailUser : $_SESSION["email"];
 			$query .= "'";
 			if(isset($nameUser) && !empty($nameUser))
 				$query .= ", name='" . $nameUser . "'";
 			if(isset($passwordUser) && !empty($passwordUser))
-				$query .= ", password='" . $passwordUser . "'";
+				$query .= ", password='" . password_hash($passwordUser, PASSWORD_BCRYPT) . "'";
 			if(isset($birthUser))
 				$query .= ", birthdate=" . formatAsQueryArgs($birthUser)[0]; // transform to NULL str if empty
 			if(isset($pathPicture) && !empty($pathPicture))
@@ -81,7 +87,7 @@
 			
 			$result = executeQuery("SELECT * FROM user_t WHERE email=$emailUser", $dbConnexion); // get user account if existing
 			
-			if($result && count($result) == 1 && $result[0]["password"] == unformatFromQueryArgs($passwordUser)[0]) {
+			if($result && count($result) == 1 && password_verify(unformatFromQueryArgs($passwordUser)[0], $result[0]["password"])) {
 				$_SESSION['connected'] = true;
 				$_SESSION['birthdate'] = $result[0]["birthdate"];
 				$_SESSION['email'] = $result[0]["email"];
