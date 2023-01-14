@@ -11,7 +11,7 @@
 					<?php
 						// if profile picture is set, we set this to src, else default used
 						if(isset($_SESSION['profile_picture']) && !empty($_SESSION['profile_picture']))
-							echo '<img id="pp_account" src="' . $_SESSION['profile_picture'] . '" alt="Profile Picture">';
+							echo '<img class="pp_account" id="custom_pp_head" src="' . $_SESSION['profile_picture'] . '" alt="Profile Picture">';
 						else
 							include('ressources/images/user_profile_picture/default.php');
 						

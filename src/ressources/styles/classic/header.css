@@ -23,9 +23,18 @@ header #title_account {
 	align-items: center;
 }
 
-header #logo_fleurYmoi {
+header .logo_fleurYmoi {
 	width: 10rem;
 	padding-left: 2rem;
+}
+
+header .logo_fleurYmoi:hover {
+	width: 10.5rem;
+	transition: width 200ms linear;
+}
+
+header .logo_fleurYmoi .y_part {
+	animation: swing 400ms;
 }
 
 header #account {
@@ -43,15 +52,23 @@ header #account #session_actions {
 	align-items: center;
 }
 
-
+header #account #session_actions .exitButton {
+	height: 3.8rem;
+}
 
 header #account #session_actions .pp_account {
 	height: 3.8rem;
-	padding-right: 3rem;
+	margin-right: 3rem;
 }
 
-header #account #session_actions #exitButton {
-	height: 3.8rem;
+header #account #session_actions .pp_account:hover, header #account #session_actions .exitButton:hover {
+	height: 4rem;
+	transition: height 100ms linear;
+}
+
+#custom_pp_head {
+	border: 0.2rem solid var(--interactible-color);
+	border-radius: 50%;
 }
 
 header #account p {
