@@ -48,11 +48,11 @@
 						
 						$conn = connectToDB($serverName, $userName, $password, $dbName);
 						if($conn) {
-							$args = formatAsQueryArgs($_REQUEST["email"], $_REQUEST["name"], $_REQUEST["password"],
+							$args = formatAsQueryArgs($_REQUEST["email"], $_REQUEST["name"],
 								$_REQUEST["birthdate"], null);
 						
 							// unpack array returned by formatAsQueryArgs
-							if(!createUser($conn, ...$args)) {
+							if(!createUser($conn, $_REQUEST["password"], ...$args)) {
 									// error occured, errors contains error message
 									// add effect of this error
 									$errors[] = "utilisateur non créé!";
