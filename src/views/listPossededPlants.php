@@ -3,12 +3,14 @@
 		float $heigth, float $width) : void {
 			?>
 			<div class="plant_tile <?php echo $familyName; // to filter by family in future ?>
-				flex-column-sparound-center">
+				flex-column-start-center">
 				<img src="ressources/images/plant_images/geranium_spp.jpg" alt="geranium spp">
-				<p id="first_para"><?php echo $name; ?></p>
-				<p><?php echo $botanicalName; ?></p>
-				<p><?php echo "$heigth x $width (h x L)"; ?></p>
-				<p><?php echo $familyName; ?></p>
+				<div class="flex-column-sparound-center" id="div-text">
+					<p><?php echo $name; ?></p>
+					<p><?php echo $botanicalName; ?></p>
+					<p><?php echo "$heigth x $width (h x L)"; ?></p>
+					<p><?php echo $familyName; ?></p>
+				</div>
 			</div>
 			<?php
 	}

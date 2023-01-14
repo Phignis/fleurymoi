@@ -1,23 +1,18 @@
 .plant_tile {
-	padding: 0.5rem;
-	background-color: var(--interactible-secondary-color);
-	min-width: 13rem;
+	background-color: var(--interactible-background-active-color);
+	width: 13rem;
 	min-height: 15rem;
-	border: 0.2rem solid var(--interactible-color);
+	box-shadow: 0.05rem 0.05rem 0.3rem var(--interactible-lighter-color);
 	color: var(--interactible-color);
-	border-radius: 0.4rem;
+	border-radius: 0.3rem;
 }
 
 .plant_tile:hover {
-	padding: 0.7rem;
-	box-shadow: 0.05rem 0.05rem 0.3rem var(--primary-color);
+	padding: 0.2rem;
+	box-shadow: 0.05rem 0.05rem 0.3rem  var(--interactible-color);
 	color: var(--interactible-lighter-color);
-	transition: padding 200ms linear, box-shadow 200ms linear, color 200ms linear;
-}
-
-.plant_tile:active {
-	background-color: var(--interactible-background-active-color);
-	transition: background-color 200ms linear;
+	border-radius: 0.4rem;
+	transition: padding 200ms linear, box-shadow 200ms linear, color 200ms linear, border-radius 200ms linear;
 }
 
 .plant_tile * {
@@ -25,19 +20,18 @@
 }
 
 .plant_tile img {
-	max-height: 7rem;
-	margin-bottom: 0.3rem;
-	border-radius: 0.3rem;
-	box-shadow: 0rem 0rem 0.5rem var(--primary-color);
+	max-width: 13rem;
+	margin-bottom: 1rem;
+	border-radius: 0.6rem 0.6rem 0 0;
 }
 
-.plant_tile *:last-child, .plant_tile #first_para {
+.plant_tile #div-text {
 	border-top: 0.2rem solid var(--primary-color);
 	padding-top: 0.1rem;
 }
 
-.plant_tile *:last-child {
+.plant_tile #div-text *:last-child {
 	border-bottom: 0.3rem solid var(--primary-color);
-	padding: 0.2rem 0rem;
 	text-transform: uppercase;
+	margin: 1rem 0rem;
 }

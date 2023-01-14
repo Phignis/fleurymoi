@@ -9,7 +9,6 @@
 	
 	function displayLandingPage() {
 		if(isset($_SESSION['email']) || !empty($_SESSION['email'])) {
-			
 			require('./views/listPossededPlants.php');
 		} else {
 			require('./views/landingPage.php');
