@@ -38,7 +38,7 @@
 						<label for="password">Mot de passe :</label>
 						<input type="password" name="password" id="password" placeholder="password" size="40">
 					</div>
-					<input type="submit" class="primary_button" id="connect_button" value="Se connecter">
+					<input type="submit" class="interactible-button" id="connect_button" value="Se connecter">
 				</form>
 				<div>
 					<a href="index.php?action=inscription" class="link-default">

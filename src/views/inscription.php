@@ -46,7 +46,7 @@
 					<input type="date" name="birthdate" id="birthdate">
 					<p class="legend" id="birthLegend">des surprises pourraient vous attendre...</p>
 				</div>
-				<input type="submit" class="primary_button" id="connect_button" value="S'inscrire">
+				<input type="submit" class="interactible-button" id="connect_button" value="S'inscrire">
 			</form>
 		</section>
 		

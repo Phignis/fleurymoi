@@ -14,6 +14,8 @@
 	--secondary-darker-color: #e4abc1;
 	
 	--interactible-color: #745d42;
+	--interactible-lighter-color: #9d8174;
+	--interactible-secondary-color: #dad6d6;
 	
 	--link-default-color: #189fa8;
 	--link-default-darker-color: #117278;
@@ -82,6 +84,27 @@ body {
 	color:var(--link-default-darker-color);
 }
 
+.interactible-button {
+	color: var(--interactible-color);
+	border: 0.2rem solid var(--interactible-color);
+	border-radius: 0.3rem;
+	padding: 0.2rem 0.3rem;
+	background-color: var(--interactible-secondary-color);
+}
+
+.interactible-button:hover {
+	border-radius: 0.5rem;
+	box-shadow: 0.1rem 0.05rem;
+	transition: border-radius 100ms linear, box-shadow 100ms linear;
+}
+
+.interactible-button:active {
+	color:var(--interactible-lighter-color);
+	border-color: var(--interactible-lighter-color);
+	background-color: white;
+	transition: color 100ms linear, border-color 100ms linear, background-color 100ms linear;
+}
+
 .message {
 	display: block;
 	padding: 0.5rem;
@@ -109,6 +132,19 @@ body {
 label {
 	color: var(--primary-color);
 	font-weight: bolder;
+}
+
+input:not([type='submit']) {
+	color: var(--interactible-color);
+	border: 0.15rem solid var(--interactible-color);
+	border-radius: 0.4rem;
+	padding: 0.2rem 0.3rem;
+}
+
+input:focus {
+	padding: 0.3rem 0.3rem;
+	border-width:0.20rem;
+	transition: padding 50ms linear, border-width 50ms linear;
 }
 
 @keyframes fadeSlideInRight {

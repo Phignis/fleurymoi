@@ -49,7 +49,7 @@
 							<?php if(isset($_SESSION['birthdate']) && !empty($_SESSION['birthdate'])) echo 'value="' . $_SESSION['birthdate'] . '"'; ?>>
 						<p class="legend" id="birthLegend">ne triche pas... ou pas de surprise!</p>
 					</div>
-					<input type="submit" class="primary_button" id="connect_button" value="Modifier les informations">
+					<input type="submit" class="interactible-button" id="connect_button" value="Modifier les informations">
 				</form>
 				<div id="pp_container">
 					<?php

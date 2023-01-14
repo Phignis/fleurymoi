@@ -6,6 +6,8 @@
 	$secondaryColor = '#f3e8ee';
 	$secondaryDarkerColor = '#e4abc1';
 	$interactibleColor = '#776258';
+	$interactibleLighterColor = '#9d8174';
+	$interactibleSecondaryColor = '#dad6d6';
 	$linkDefaultColor = '#189fa8';
 	$linkDefaultDarkerColor = '#117278';
 	$successColor = '#b8ddab';
@@ -13,7 +15,8 @@
 	
 	function getColors() {
 		global $primaryColor, $primaryLighterColor, $secondaryColor, $secondaryDarkerColor,
-			$interactibleColor, $linkDefaultColor, $linkDefaultDarkerColor, $successColor, $errorColor;
+			$interactibleColor, $interactibleLighterColor, $interactibleSecondaryColor, $linkDefaultColor,
+			$linkDefaultDarkerColor, $successColor, $errorColor;
 		// format all var to an object
 		$colors = array(
 			'primary' => $primaryColor,
@@ -21,6 +24,8 @@
 			'secondary' => $secondaryColor,
 			'secondary-darker' => $secondaryDarkerColor,
 			'interactible' => $interactibleColor,
+			'interactible-lighter' => $interactibleLighterColor,
+			'interactible-secondary' => $interactibleSecondaryColor,
 			'link-default' => $linkDefaultColor,
 			'link-default-darker' => $linkDefaultDarkerColor,
 			'success' => $successColor,
