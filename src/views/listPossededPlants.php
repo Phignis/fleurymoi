@@ -1,3 +1,19 @@
+<?php
+	function displayFlower(string $botanicalName, string $name, string $familyName,
+		float $heigth, float $width) : void {
+			?>
+			<div class="plant_tile <?php echo $familyName; // to filter by family in future ?>
+				flex-column-sparound-center">
+				<img src="ressources/images/plant_images/geranium_spp.jpg" alt="geranium spp">
+				<p id="first_para"><?php echo $name; ?></p>
+				<p><?php echo $botanicalName; ?></p>
+				<p><?php echo "$heigth x $width (h x L)"; ?></p>
+				<p><?php echo $familyName; ?></p>
+			</div>
+			<?php
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -15,6 +31,7 @@
 		
 		
 		<link rel="stylesheet" href="ressources/styles/classic/main.css">
+		<link rel="stylesheet" href="ressources/styles/classic/listPossededPlants.css">
 		<link rel="stylesheet" href="ressources/styles/layout.css">
 		<link rel="stylesheet" href="ressources/styles/classic/header.css">
 		
@@ -29,18 +46,13 @@
 		<section id="page_content">
 		
 			<h1 class="page_title">
-				Plantes
+				Plantes possédées
 			</h1>
 			
-			<p>
-				Site en construction...
-			</p>
+			<div id="tiles-container">
+				<?php displayFlower("Geranium spp.", "Géranium Vivace", "Géraniacées", 1.5, 0.8); ?>
+			</div>
 			
-			<hr>
-			<h3>Liste des utilisateurs déjà inscrits (que faites vous là? il n'y a rien!)</h3>
-			<p>
-				
-			</p>
 		</section>
 		
 		

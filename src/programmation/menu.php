@@ -9,6 +9,7 @@
 	
 	function displayLandingPage() {
 		if(isset($_SESSION['email']) || !empty($_SESSION['email'])) {
+			
 			require('./views/listPossededPlants.php');
 		} else {
 			require('./views/landingPage.php');
@@ -70,7 +71,7 @@
 								if(connect($conn,
 									...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
 									$success[] = "Connexion réussie";
-									require('./views/listPossededPlants.php');
+									displayLandingPage();
 								} else {
 									require("views/inscription.php");
 								}

@@ -17,6 +17,7 @@
 	--interactible-color: #745d42;
 	--interactible-lighter-color: #9d8174;
 	--interactible-secondary-color: #dad6d6;
+	--interactible-background-active-color: #fff;
 	
 	--link-default-color: #189fa8;
 	--link-default-darker-color: #117278;
@@ -62,6 +63,7 @@ body {
 	color: var(--primary-color);
 	text-decoration-color: var(--secondary-darker-color);
 	font-size: 3rem;
+	margin-bottom: 2rem;
 }
 
 .legend {
