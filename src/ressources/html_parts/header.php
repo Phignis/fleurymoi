@@ -3,7 +3,7 @@
 		
 		<a href="index.php">
 			<?php include("ressources/images/logos/logo_fleurymoi.php");?>
-		<a>
+		</a>
 		
 		<div id="account">
 			<div id="session_actions">

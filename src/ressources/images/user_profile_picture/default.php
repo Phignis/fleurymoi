@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" fill-rule="nonzero" id="pp_account">
-	<g fill-opacity="0" fill="#dddddd" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+	<g fill-opacity="0" fill="#dddddd" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" style="mix-blend-mode: normal">
 		<path d="M0,256v-256h256v256z" id="bgRectangle"></path>
 	</g>
-	<g fill="var(--interactible-color)" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+	<g fill="var(--interactible-color)" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-size="none" style="mix-blend-mode: normal">
 		<g transform="scale(10.66667,10.66667)">
 			<path d="M12,22h-0.2c-6.2,-1.4 -8.8,-7.4 -8.8,-9.6v-8.2l0.5,-0.3c0.1,-0.1 3,-1.9 8.5,-1.9c5.5,0 8.4,1.8 8.5,1.9l0.5,0.3v8.3c0,2.2 -2.6,8.2 -8.8,9.5zM5,5.3v7.1c0,1.4 2.1,6.3 7,7.5c4.9,-1.2 7,-6.1 7,-7.5v-7.1c-1,-0.4 -3.3,-1.3 -7,-1.3c-3.7,0 -6,0.9 -7,1.3z"></path>
 			<path d="M12,3c5.3,0 8,1.7 8,1.7v7.7c0,1.9 -2.5,7.3 -8,8.6c-5.5,-1.2 -8,-6.7 -8,-8.6v-7.7c0,0 2.8,-1.7 8,-1.7" opacity="0.3"></path>

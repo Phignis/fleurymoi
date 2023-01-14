@@ -21,7 +21,7 @@
 	<body>
 		<?php require("ressources/html_parts/header.php"); ?>
 		
-		<section id="messages" class="hidden"></section>
+		<div id="messages" class="hidden"></div>
 		
 		<section id="page_content" class="flex-column-start-left">
 			<h1 class="page_title">
@@ -31,13 +31,13 @@
 				<form id="connect_form" class="flex-column-start-left" name="connect_form" method="post" action="index.php?action=sessionCreate">
 					<div class="spaced">
 						<label for="email">Email :</label>
-						<input type="email" name="email" placeholder="email" size="30" maxlength="40" />
+						<input type="email" name="email" id="email" placeholder="email" size="30" maxlength="40">
 					</div>
 					<div class="spaced">
 						<label for="password">Mot de passe :</label>
-						<input type="password" name="password" placeholder="password" size="40" />
+						<input type="password" name="password" id="password" placeholder="password" size="40">
 					</div>
-					<input type="submit" class="primary_button" id="connect_button" value="Se connecter" />
+					<input type="submit" class="primary_button" id="connect_button" value="Se connecter">
 				</form>
 				<div>
 					<a href="index.php?action=inscription" class="link-default">

@@ -25,7 +25,7 @@
 			require("ressources/html_parts/header.php");
 		?>
 		
-		<section id="messages" class="hidden"></section>
+		<div id="messages" class="hidden"></div>
 		
 		<section id="page_content">
 		
