@@ -7,6 +7,14 @@
 		return json_encode([$errors, $success]);
 	}
 	
+	function displayLandingPage() {
+		if(isset($_SESSION['email']) || !empty($_SESSION['email'])) {
+			require('./views/listPossededPlants.php');
+		} else {
+			require('./views/landingPage.php');
+		}
+}
+	
 	function menu() : void {
 		
 		global $actionList, $errors, $success;
@@ -20,7 +28,7 @@
 		
 		if(!isset($_REQUEST['action']) || empty($_REQUEST['action'])) { // first time going into website
 			// $_REQUEST seach in both $_GET and $_POST method
-			require('./views/listPossededPlants.php');
+			displayLandingPage();
 		} else {
 			// switch sur les actions possibles
 			if (in_array($_REQUEST['action'], $actionList)){
@@ -37,7 +45,7 @@
 						require("./config/session.php");
 						
 						disconnect();
-						require('./views/listPossededPlants.php');
+						require('./views/landingPage.php');
 						break;
 					case 'account':
 						require('./views/account.php');
@@ -88,7 +96,7 @@
 							if(connect($conn, ...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
 								// success
 								$success[] = "connexion reussie";
-								require('./views/listPossededPlants.php');
+								displayLandingPage();
 							} else {
 								require('./views/connexion.php');
 							}
@@ -110,20 +118,17 @@
 								$_REQUEST["birthdate"], null)) {
 								// success
 								$success[] = "modification prise en compte";
-								require('./views/account.php');
-							} else {
-								require('./views/account.php');
 							}
 							disconnectFromDB($conn);
 						} else {
 							$errors[] = "Connexion à la base de donnée impossible";
-							require("views/connexion.php");
 						}
+						require("views/account.php");
 						break;
 				}
 			} else {
 				$errors[] = "Action non reconnue, mauvaise addresse.";
-				require("views/listPossededPlants.php");
+				displayLandingPage();
 			}
 		}
 		
