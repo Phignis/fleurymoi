@@ -7,7 +7,8 @@
 		$str = $str . ' déconnecté';
 		$success[] = $str;
 		unset($_SESSION['userName']);
-		unset($_SESSION['isBirthdayToday']);
+		unset($_SESSION['birthdate']);
+		unset($_SESSION['email']);
 		$_SESSION['connected'] = false;
 	}
 
@@ -38,7 +39,8 @@
 			if($result && count($result) == 1 && $result[0]["password"] == unformatFromQueryArgs($passwordUser)[0]) {
 				$_SESSION['connected'] = true;
 				// TODO: determine if it's birday'
-				$_SESSION['isBirthdayToday'] = false;
+				$_SESSION['birthdate'] = $result[0]["birthdate"];
+				$_SESSION['email'] = $result[0]["email"];
 				$_SESSION['userName'] = $result[0]["name"];
 				$_SESSION['profile_picture'] = $result[0]["path_profile_picture"];
 				

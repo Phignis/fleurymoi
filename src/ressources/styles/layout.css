@@ -33,6 +33,20 @@
 	align-items: center;
 }
 
+.flex-row-spbetween-start {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.flex-row-spbetween-end {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
 .fixed-top-center {
 	position: fixed;
 	top: 9rem;

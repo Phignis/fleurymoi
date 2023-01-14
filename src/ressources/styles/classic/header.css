@@ -45,7 +45,7 @@ header #account #session_actions {
 
 
 
-header #account #session_actions #pp_account {
+header #account #session_actions .pp_account {
 	height: 3.8rem;
 	padding-right: 3rem;
 }

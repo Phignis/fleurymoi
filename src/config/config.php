@@ -35,7 +35,7 @@
 
 	
 
-	$actionList = ['accueil', 'inscription', 'connexion', 'deconnexion', 'newInscription', 'sessionCreate'];
+	$actionList = ['accueil', 'inscription', 'connexion', 'deconnexion', 'account', 'newInscription', 'sessionCreate'];
 
 	$serverName = 'localhost';
 	$userName = 'access_fleurYmoi';

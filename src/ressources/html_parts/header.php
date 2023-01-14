@@ -7,7 +7,7 @@
 		
 		<div id="account">
 			<div id="session_actions">
-				<a href="index.php?action=<?php echo (isset($_SESSION['connected']) && $_SESSION['connected'] == true) ? "compte" : "connexion"?>">
+				<a href="index.php?action=<?php echo (isset($_SESSION['connected']) && $_SESSION['connected'] == true) ? "account" : "connexion"?>">
 					<?php
 						// if profile picture is set, we set this to src, else default used
 						if(isset($_SESSION['profile_picture']) && !empty($_SESSION['profile_picture']))

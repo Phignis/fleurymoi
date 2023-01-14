@@ -51,8 +51,6 @@
 		</section>
 		
 		
-		
-		<hr>
 		<?php include("ressources/html_parts/footer.php"); ?>
 		
 		<script src="ressources/js/displayMessages.js"></script>

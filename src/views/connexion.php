@@ -21,6 +21,7 @@
 	<body>
 		<?php require("ressources/html_parts/header.php"); ?>
 		
+		
 		<div id="messages" class="hidden"></div>
 		
 		<section id="page_content" class="flex-column-start-left">
@@ -48,8 +49,6 @@
 		</section>
 		
 		
-		
-		<hr>
 		<?php include("ressources/html_parts/footer.php");?>
 		
 		<script src="ressources/js/displayMessages.js"></script>

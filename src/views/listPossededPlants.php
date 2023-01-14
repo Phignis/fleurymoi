@@ -21,9 +21,8 @@
 	</head>
 	
 	<body>
-		<?php
-			require("ressources/html_parts/header.php");
-		?>
+		<?php require("ressources/html_parts/header.php"); ?>
+		
 		
 		<div id="messages" class="hidden"></div>
 		
@@ -43,6 +42,7 @@
 				
 			</p>
 		</section>
+		
 		
 		<?php include("ressources/html_parts/footer.php"); // we can print page without footer (no important infos) ?>
 		

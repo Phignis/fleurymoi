@@ -1,0 +1,24 @@
+#page_content form:last-child {
+	width: 80%;
+    padding: 1rem 2rem;
+}
+
+#inscription_form .spaced {
+	padding: 0.5rem 0rem;
+}
+
+#birthLegend {
+	text-align: right;
+	color:var(--secondary-darker-color)
+}
+
+#pp_container {
+	border: 0.2rem solid var(--interactible-color);
+	box-shadow: 0.2rem 0.1rem;
+	margin-left: 25rem;
+	padding: 0.2rem;
+}
+
+#pp_container .pp_account {
+	width: 15rem;
+}

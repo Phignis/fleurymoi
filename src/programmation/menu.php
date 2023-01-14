@@ -43,7 +43,9 @@
 					disconnect();
 					require('./views/listPossededPlants.php');
 					break;
-					
+				case 'account':
+					require('./views/account.php');
+					break;
 				case 'newInscription' :
 					global $serverName, $userName, $password, $dbName; // get global variables
 					require("./config/session.php");
@@ -100,7 +102,6 @@
 					break;
 			}
 		} else {
-			// TODO: erreur action non reconnu
 			$errors[] = "Action non reconnue, mauvaise addresse.";
 			require("views/listPossededPlants.php");
 		}
