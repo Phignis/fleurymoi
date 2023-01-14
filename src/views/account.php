@@ -30,17 +30,17 @@
 			<div class="flex-row-spbetween-end">
 				<form id="inscription_form" class="flex-column-start-left" name="inscription_form" method="post" action="index.php?action=modifyAccount">
 					<div class="spaced">
-						<label for="name">Nom : *</label>
+						<label for="name">Nom :</label>
 						<input type="text" name="name" id="name" placeholder="name" size="30" maxlength="50"
 							<?php if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) echo 'value="' . $_SESSION['userName'] . '"'; ?>>
 					</div>
 					<div class="spaced">
-						<label for="email">Email : *</label>
+						<label for="email">Email :</label>
 						<input type="email" name="email" id="email" placeholder="email" size="30" maxlength="40"
 						<?php if(isset($_SESSION['email']) && !empty($_SESSION['email'])) echo 'value="' . $_SESSION['email'] . '"'; ?>>
 					</div>
 					<div class="spaced">
-						<label for="password">Mot de passe : *</label>
+						<label for="password">Mot de passe :</label>
 						<input type="password" name="password" id="password" placeholder="password" size="40">
 					</div>
 					<div class="spaced">

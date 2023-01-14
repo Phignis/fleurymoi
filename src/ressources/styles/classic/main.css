@@ -9,6 +9,7 @@
 	/* define colors */
 	--primary-color: #10492a;
 	--primary-lighter-color: #d6f5e3;
+	--primary-background-lighter-color: #eafaf1;
 	
 	--secondary-color: #f3e8ee;
 	--secondary-darker-color: #e4abc1;
@@ -40,6 +41,7 @@ body {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	background-color: var(--primary-background-lighter-color);
 }
 
 #page_content {
@@ -175,15 +177,19 @@ input:focus {
 
 @keyframes swing {
 	0% {
+		fill:var(--primary-color);
 		transform: rotate(0deg);
 	}
 	10% {
+		fill:var(--primary-color);
 		transform: rotate(-5deg);
 	}
 	30% {
+		fill:var(--primary-color);
 		transform: rotate(5deg);
 	}
 	60% {
+		fill:var(--primary-color);
 		transform: rotate(-5deg);
 	}
 	80% {
@@ -191,6 +197,7 @@ input:focus {
 	}
 	}
 	100% {
+		fill: var(--secondary-darker-color);
 		transform: rotate(0deg);
 	}
 }

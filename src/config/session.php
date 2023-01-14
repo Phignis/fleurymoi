@@ -15,7 +15,8 @@
 	function createUser($dbConnexion, $emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture) {
 
 		if(isset($emailNewUser) && isset($passwordNewUser) && isset($nameNewUser)) {
-			$query = "INSERT INTO utilisateur VALUES($emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture)";
+			// TODO: check sql injection & if data are valid
+			$query = "INSERT INTO user_t VALUES($emailNewUser, $nameNewUser, $passwordNewUser, $birthNewUser, $pathPicture)";
 			$result = executeQuery($query, $dbConnexion);
 			if($result) {
 				return true;
@@ -29,16 +30,59 @@
 		}
 		return false;
 	}
+	
+	function modifyUser(mysqli $dbConnexion, ?string $emailUser, ?string $nameUser, ?string $passwordUser, ?string $birthUser, ?string $pathPicture) : bool {
+		if(isset($_SESSION["email"]) && !empty($_SESSION["email"])) {
+			// TODO: check sql injection & if data are valid
+			
+			var_dump($birthUser);
+			
+			$query = "UPDATE user_t SET email='";
+			$query .= (isset($emailUser) && !empty($emailUser)) ? $emailUser : $_SESSION["email"];
+			$query .= "'";
+			if(isset($nameUser) && !empty($nameUser))
+				$query .= ", name='" . $nameUser . "'";
+			if(isset($passwordUser) && !empty($passwordUser))
+				$query .= ", password='" . $passwordUser . "'";
+			if(isset($birthUser))
+				$query .= ", birthdate=" . formatAsQueryArgs($birthUser)[0]; // transform to NULL str if empty
+			if(isset($pathPicture) && !empty($pathPicture))
+				$query .= ", path_profile_picture='" . $pathPicture . "'";
+				
+			$query .= " WHERE email='" . $_SESSION["email"] . "'";
+			
+			$result = executeQuery($query, $dbConnexion);
+			
+			if($result && $result == true) {
+				if(isset($emailUser) && !empty($emailUser))
+					$_SESSION['email'] = $emailUser;
+				if(isset($birthUser))
+					$_SESSION['birthdate'] = $birthUser;
+				if(isset($nameUser) && !empty($nameUser))
+					$_SESSION['userName'] = $nameUser;
+				if(isset($pathPicture) && !empty($pathPicture))
+					$_SESSION['profile_picture'] = $pathPicture;
+				
+				
+				
+				return true;
+				
+			} else { // prefer to make else more general, to not inform that a email has been found with separated message if password bad
+				global $errors;
+				$errors[] = "email déjà utilisé pour un autre compte";
+				return false;
+			}
+		}
+	}
 
 	function connect(mysqli $dbConnexion, string $emailUser, string $passwordUser) : bool {
 
 		if(isset($emailUser) && isset($passwordUser)) {
 			
-			$result = executeQuery("SELECT * FROM utilisateur WHERE email=$emailUser", $dbConnexion); // get user account if existing
+			$result = executeQuery("SELECT * FROM user_t WHERE email=$emailUser", $dbConnexion); // get user account if existing
 			
 			if($result && count($result) == 1 && $result[0]["password"] == unformatFromQueryArgs($passwordUser)[0]) {
 				$_SESSION['connected'] = true;
-				// TODO: determine if it's birday'
 				$_SESSION['birthdate'] = $result[0]["birthdate"];
 				$_SESSION['email'] = $result[0]["email"];
 				$_SESSION['userName'] = $result[0]["name"];
@@ -52,8 +96,6 @@
 				global $errors;
 				$errors[] = "Compte inconnu. Connexion impossible";
 			}
-			
-			//~ disconnectFromDB($dbConnexion);
 			
 		} else {
 			global $errors;

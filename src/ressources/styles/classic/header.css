@@ -38,27 +38,16 @@ header .logo_fleurYmoi .y_part {
 }
 
 header #account {
-	display: flex;
-	flex-flow: column wrap;
-	justify-content: center;
-	align-items: center;
 	padding-right: 2rem;
-}
-
-header #account #session_actions {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: right;
-	align-items: center;
 }
 
 header #account #session_actions .exitButton {
 	height: 3.8rem;
+	margin-left: 3rem;
 }
 
 header #account #session_actions .pp_account {
 	height: 3.8rem;
-	margin-right: 3rem;
 }
 
 header #account #session_actions .pp_account:hover, header #account #session_actions .exitButton:hover {

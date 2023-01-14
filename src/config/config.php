@@ -3,6 +3,7 @@
 	// define theme colors, modifiate here to modify everything
 	$primaryColor = '#10492a';
 	$primaryLighterColor = '#d6f5e3';
+	$primaryBackgroundLighter = '#eafaf1';
 	$secondaryColor = '#f3e8ee';
 	$secondaryDarkerColor = '#e4abc1';
 	$interactibleColor = '#776258';
@@ -14,13 +15,14 @@
 	$errorColor = '#f48282';
 	
 	function getColors() {
-		global $primaryColor, $primaryLighterColor, $secondaryColor, $secondaryDarkerColor,
+		global $primaryColor, $primaryLighterColor, $primaryBackgroundLighter, $secondaryColor, $secondaryDarkerColor,
 			$interactibleColor, $interactibleLighterColor, $interactibleSecondaryColor, $linkDefaultColor,
 			$linkDefaultDarkerColor, $successColor, $errorColor;
 		// format all var to an object
 		$colors = array(
 			'primary' => $primaryColor,
 			'primary-lighter' => $primaryLighterColor,
+			'primary-background-lighter' => $primaryBackgroundLighter,
 			'secondary' => $secondaryColor,
 			'secondary-darker' => $secondaryDarkerColor,
 			'interactible' => $interactibleColor,
@@ -40,7 +42,7 @@
 
 	
 
-	$actionList = ['accueil', 'inscription', 'connexion', 'deconnexion', 'account', 'newInscription', 'sessionCreate'];
+	$actionList = ['accueil', 'inscription', 'connexion', 'deconnexion', 'account', 'newInscription', 'sessionCreate', 'modifyAccount'];
 
 	$serverName = 'localhost';
 	$userName = 'access_fleurYmoi';

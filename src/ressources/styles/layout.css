@@ -1,3 +1,10 @@
+.flex-column-center-center {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+
 .flex-column-start-center {
 	display: flex;
 	flex-flow: column wrap;
@@ -17,6 +24,13 @@
 	flex-flow: column wrap;
 	justify-content: flex-start;
 	align-items: flex-end;
+}
+
+.flex-row-center-center {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
 }
 
 .flex-row-start-center {
