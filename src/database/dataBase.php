@@ -33,10 +33,10 @@
 		return $paramsToFormat;
 	}
 	
-	function connectToDB($serverName, $userName, $password, $dbName) {
+	function connectToDB(string $serverName, string $userName, string $password, string $dbName) {
 		
-		if(isset($serverName) && isset($userName) && isset($password)
-			&& isset($dbName)) {
+		if(!empty($serverName) && !empty($userName) && !empty($password)
+			&& !empty($dbName)) {
 				
 			$conn = new mysqli($serverName, $userName, $password, $dbName);
 			
@@ -49,7 +49,7 @@
 		return NULL; // no valid datas, or there was an error when connecting to sql
 	}
 	
-	function disconnectFromDB(mysqli $openConnection) {
+	function disconnectFromDB(mysqli $openConnection) : bool {
 		
 		if(isset($openConnection) && $openConnection instanceof mysqli) {
 			// instanceof works only on class, not primitive type
@@ -64,7 +64,7 @@
 
 	
 	function executeQuery(string $query, mysqli $DBConnexion) {
-		if(isset($query) && !empty($query) && is_string($query)) {
+		if(!empty($query) && is_string($query)) {
 			
 			// TODO: Sanitize string : https://www.php.net/manual/en/mysqli.query.php
 			

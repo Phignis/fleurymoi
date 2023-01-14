@@ -1,6 +1,6 @@
 <?php
 
-	function getSessionMessages() : string {		
+	function getSessionMessages() {		
 		$errors = $_SESSION["errors"] ?? [];
 		$success = $_SESSION["success"] ?? [];
 		

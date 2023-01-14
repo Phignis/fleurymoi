@@ -12,10 +12,13 @@
 		$_SESSION['connected'] = false;
 	}
 
-	function createUser($dbConnexion, $passwordNewUser, $emailNewUser, $nameNewUser, $birthNewUser, $pathPicture) {
+	function createUser(mysqli $dbConnexion, string $passwordNewUser, string $emailNewUser, string $nameNewUser, string $birthNewUser, string $pathPicture) : bool {
 		// password before other elements cause other should be formated with formatAsQueryArgs -> can use unpack sugar syntax in call
 
-		if(isset($emailNewUser) && isset($passwordNewUser) && isset($nameNewUser)) {
+		if(empty($emailNewUser) ||  empty($passwordNewUser) || empty($nameNewUser)) {
+			global $errors;
+			$errors[] = "Informations manquantes";
+		} else {
 			// TODO: check sql injection & if data are valid
 			/*
 			 * password_hash($passwordUser, PASSWORD_BCRYPT) encode using bcrypt.
@@ -32,9 +35,6 @@
 				global $errors;
 				$errors[] = "mail déjà utilisé";
 			}
-		} else {
-			global $errors;
-			$errors[] = "Informations manquantes";
 		}
 		return false;
 	}
@@ -76,15 +76,18 @@
 			} else { // prefer to make else more general, to not inform that a email has been found with separated message if password bad
 				global $errors;
 				$errors[] = "email déjà utilisé pour un autre compte";
-				return false;
 			}
 		}
+		return false;
 	}
 
 	function connect(mysqli $dbConnexion, string $emailUser, string $passwordUser) : bool {
 
-		if(isset($emailUser) && isset($passwordUser)) {
-			
+		if(empty($emailUser) || empty($passwordUser)) {
+			global $errors;
+			$errors[] = "Informations données incorrectes";
+			// TODO: afficher une vue erreur avec le tableau d'afficher
+		} else {
 			$result = executeQuery("SELECT * FROM user_t WHERE email=$emailUser", $dbConnexion); // get user account if existing
 			
 			if($result && count($result) == 1 && password_verify(unformatFromQueryArgs($passwordUser)[0], $result[0]["password"])) {
@@ -102,11 +105,6 @@
 				global $errors;
 				$errors[] = "Compte inconnu. Connexion impossible";
 			}
-			
-		} else {
-			global $errors;
-			$errors[] = "Informations données incorrectes";
-			// TODO: afficher une vue erreur avec le tableau d'afficher
 		}
 		
 		return false;
