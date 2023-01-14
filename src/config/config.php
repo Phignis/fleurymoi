@@ -41,7 +41,6 @@
 	$userName = 'access_fleurYmoi';
 	$password = 'fleurYmoi63&';
 	$dbName = 'fleurYmoi';
-
-
+	
 	$errors = []; // table having all errors messages related to requests
 	$success = []; // table having all success messages related to requests

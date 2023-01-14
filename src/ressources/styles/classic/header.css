@@ -58,4 +58,5 @@ header #account p {
 	color: var(--primary-color);
 	font-family: var(--minor-title-font);
 	font-size: 1rem;
+	font-weight: bold;
 }
