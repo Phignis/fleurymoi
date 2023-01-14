@@ -1,8 +1,23 @@
 <?php
+
+	function getSessionMessages() : string {
+		if(session_status() == PHP_SESSION_NONE) session_start(); // on start la session si non existante, pour utiliser le tableau $_SESSION
+		
+		$errors = $_SESSION["errors"] ?? [];
+		$success = $_SESSION["success"] ?? [];
+		
+		return json_encode([$errors, $success]);
+	}
 	
 	function menu() : void {
 		
+		global $actionList, $errors, $success;
+		
 		if(session_status() == PHP_SESSION_NONE) session_start(); // on start la session si non existante, pour utiliser le tableau $_SESSION
+		
+		$errors = $_SESSION["errors"] ?? [];
+		$success = $_SESSION["success"] ?? [];
+
 		
 		if(!isset($_REQUEST['action']) || empty($_REQUEST['action'])) { // on arrive pour la première fois sur le site, on arrive sur l'accueil
 			// request seach in both $_GET and $_POST
@@ -12,9 +27,6 @@
 		}
 		
 		// switch sur les actions possibles
-		
-		global $actionList, $errors, $success;
-		
 		if (in_array($_REQUEST['action'], $actionList)){
 			switch($_REQUEST['action']) {
 				case 'inscription':
@@ -90,8 +102,17 @@
 		} else {
 			// TODO: erreur action non reconnu
 			$errors[] = "Action non reconnue, mauvaise addresse.";
-			require("view/listPossededPlants.php");
+			require("views/listPossededPlants.php");
 		}
 		
-		
+		// save in $_SESSION the arrays to display by js, and keep to other transaction if not displayed		
+		$_SESSION["errors"] = $errors;
+		$_SESSION["success"] = $success;
+	}
+	
+	if(isset($_GET["fetchMessages"]) && $_GET["fetchMessages"] == true) { // run func only if contact is to fetch messages, requested by get
+		$toReturn = getSessionMessages();
+		$_SESSION["errors"] = []; // can unset too
+		$_SESSION["success"] = [];
+		echo $toReturn;
 	}

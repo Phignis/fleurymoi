@@ -46,7 +46,6 @@
 		
 		<?php include("ressources/html_parts/footer.php"); // we can print page without footer (no important infos) ?>
 		
-		<?php include("ressources/js/displayMessages.php"); ?>
-		
+		<script src="ressources/js/displayMessages.js"></script>
 	</body>
 </html>

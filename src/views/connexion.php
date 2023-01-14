@@ -52,6 +52,6 @@
 		<hr>
 		<?php include("ressources/html_parts/footer.php");?>
 		
-		<?php include("ressources/js/displayMessages.php"); ?>
+		<script src="ressources/js/displayMessages.js"></script>
 	</body>
 </html>

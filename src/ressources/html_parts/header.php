@@ -2,7 +2,7 @@
 	<div id="title_account">
 		
 		<a href="index.php">
-			<?php include("ressources/images/logos/logo_fleurymoi.php") ?>
+			<?php include("ressources/images/logos/logo_fleurymoi.php");?>
 		<a>
 		
 		<div id="account">
