@@ -40,7 +40,7 @@
 					</div>
 					<input type="submit" class="interactible-button" id="connect_button" value="Se connecter">
 				</form>
-				<div>
+				<div id="toInscription">
 					<a href="index.php?action=inscription" class="link-default">
 						vous n'avez pas de compte?
 					</a>

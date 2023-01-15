@@ -35,10 +35,6 @@
 	border-bottom: 0.2rem solid var(--primary-color);
 }
 
-#div-text * {
-	margin-top: 0.2rem;
-}
-
 #div-text * p {
 	text-align: center;
 	max-width: 10.5rem;
