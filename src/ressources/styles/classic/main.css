@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 :root, #logo {
-	/* define colors */
+	/* define colors if js ended up to be slow or unavailble */
 	--primary-color: #10492a;
 	--primary-lighter-color: #d6f5e3;
 	--primary-background-lighter-color: #eafaf1;
@@ -17,6 +17,8 @@
 	--interactible-color: #745d42;
 	--interactible-lighter-color: #9d8174;
 	--interactible-secondary-color: #dad6d6;
+	--interactible-background-color: #f2f2f2;
+	--interactible-background-active-color: #fff;
 	
 	--link-default-color: #189fa8;
 	--link-default-darker-color: #117278;
@@ -62,6 +64,7 @@ body {
 	color: var(--primary-color);
 	text-decoration-color: var(--secondary-darker-color);
 	font-size: 3rem;
+	margin-bottom: 2rem;
 }
 
 .legend {

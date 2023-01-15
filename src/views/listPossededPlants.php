@@ -1,3 +1,25 @@
+<?php
+	function displayFlower(string $botanicalName, string $name, string $familyName,
+		float $heigth, float $width, int $quantity, string $pathToImg) : void {
+			?>
+			<div class="plant_tile <?php echo $familyName; // to filter by family in future ?> flex-column-start-center">
+				<img src="<?php echo $pathToImg; ?>" alt="<?php echo $botanicalName ?>">
+				<div class="flex-column-sparound-center" id="div-text">
+					<div>
+						<p class="main-info"><?php echo $name; ?></p>
+						<p><?php echo $botanicalName; ?></p>
+					</div>
+					<div>
+						<p><?php echo "$heigth x $width (h x L)"; ?></p>
+						<p class="quantity">x<?php echo $quantity; ?></p>
+					</div>
+					<p class="family main-info"><?php echo $familyName; ?></p>
+				</div>
+			</div>
+			<?php
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -15,9 +37,9 @@
 		
 		
 		<link rel="stylesheet" href="ressources/styles/classic/main.css">
+		<link rel="stylesheet" href="ressources/styles/classic/listPossededPlants.css">
 		<link rel="stylesheet" href="ressources/styles/layout.css">
 		<link rel="stylesheet" href="ressources/styles/classic/header.css">
-		
 	</head>
 	
 	<body>
@@ -29,18 +51,23 @@
 		<section id="page_content">
 		
 			<h1 class="page_title">
-				Plantes
+				Plantes possédées
 			</h1>
 			
-			<p>
-				Site en construction...
-			</p>
+			<div id="tiles-container" class="flex-row-sparound-center">
+				<?php
+					if(isset($plants) && is_array($plants) && count($plants) > 0) {
+						foreach($plants as &$plant)
+							displayFlower($plant['botanical_name'], $plant['name'], $plant['family_name'],
+								$plant['heigth'], $plant['width'], $plant['quantity'], $plant['path_picture']);
+					} else {
+						
+						echo "<p>Vous ne possédez pas encore de plantes</p>";
+					}
+					
+				?>
+			</div>
 			
-			<hr>
-			<h3>Liste des utilisateurs déjà inscrits (que faites vous là? il n'y a rien!)</h3>
-			<p>
-				
-			</p>
 		</section>
 		
 		

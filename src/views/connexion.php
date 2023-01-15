@@ -28,7 +28,7 @@
 			<h1 class="page_title">
 				Connexion
 			</h1>
-			<div class="flex-row-start-center connexion_part">
+			<div class="flex-row-start-center" id="connexion_part">
 				<form id="connect_form" class="flex-column-start-left" name="connect_form" method="post" action="index.php?action=sessionCreate">
 					<div class="spaced">
 						<label for="email">Email :</label>

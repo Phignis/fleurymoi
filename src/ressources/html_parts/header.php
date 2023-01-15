@@ -28,10 +28,10 @@
 			echo "</div>";				
 				
 			if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) {
-				echo "<p>" . $_SESSION['userName'] . " connected!</p>";
+				echo "<p>" . $_SESSION['userName'] . " connecté(e)!</p>";
 			} else {
 				?>
-					<p>not connected</p>
+					<p>non connecté(e)</p>
 				<?php
 			}
 		?>

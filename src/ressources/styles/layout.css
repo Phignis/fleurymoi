@@ -12,11 +12,11 @@
 	align-items: center;
 }
 
-.flex-column-start-left {
+.flex-column-sparound-center {
 	display: flex;
 	flex-flow: column wrap;
-	justify-content: flex-start;
-	align-items: flex-start;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .flex-column-start-right {
@@ -59,6 +59,13 @@
 	flex-flow: row wrap;
 	justify-content: space-between;
 	align-items: flex-end;
+}
+
+.flex-row-sparound-center {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .fixed-top-center {
