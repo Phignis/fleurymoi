@@ -49,7 +49,7 @@
 					</div>
 					<input type="submit" class="interactible-button" id="inscription_button" value="S'inscrire">
 				</form>
-				<div>
+				<div id="to_connection">
 					<a href="index.php?action=connexion" class="link-default">
 						déjà un compte?
 					</a>
