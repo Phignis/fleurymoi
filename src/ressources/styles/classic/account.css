@@ -8,15 +8,18 @@
 }
 
 #birthLegend {
-	text-align: right;
+	text-align: center;
 	color:var(--secondary-darker-color)
 }
 
 #pp_container {
-	border: 0.2rem solid var(--interactible-color);
-	box-shadow: 0.2rem 0.1rem;
 	margin-left: 25rem;
 	padding: 0.2rem;
+}
+
+#pp_container img {
+	border-radius: 0.3rem;
+	box-shadow: 0.2rem 0.2rem 0.3rem var(--interactible-color);
 }
 
 #pp_container .pp_account {

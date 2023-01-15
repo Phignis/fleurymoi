@@ -1,15 +1,19 @@
 <?php
 	function displayFlower(string $botanicalName, string $name, string $familyName,
-		float $heigth, float $width) : void {
+		float $heigth, float $width, int $quantity, string $pathToImg) : void {
 			?>
-			<div class="plant_tile <?php echo $familyName; // to filter by family in future ?>
-				flex-column-start-center">
-				<img src="ressources/images/plant_images/geranium_spp.jpg" alt="geranium spp">
+			<div class="plant_tile <?php echo $familyName; // to filter by family in future ?> flex-column-start-center">
+				<img src="<?php echo $pathToImg; ?>" alt="<?php echo $botanicalName ?>">
 				<div class="flex-column-sparound-center" id="div-text">
-					<p><?php echo $name; ?></p>
-					<p><?php echo $botanicalName; ?></p>
-					<p><?php echo "$heigth x $width (h x L)"; ?></p>
-					<p><?php echo $familyName; ?></p>
+					<div>
+						<p class="main-info"><?php echo $name; ?></p>
+						<p><?php echo $botanicalName; ?></p>
+					</div>
+					<div>
+						<p><?php echo "$heigth x $width (h x L)"; ?></p>
+						<p class="quantity">x<?php echo $quantity; ?></p>
+					</div>
+					<p class="family main-info"><?php echo $familyName; ?></p>
 				</div>
 			</div>
 			<?php
@@ -36,7 +40,6 @@
 		<link rel="stylesheet" href="ressources/styles/classic/listPossededPlants.css">
 		<link rel="stylesheet" href="ressources/styles/layout.css">
 		<link rel="stylesheet" href="ressources/styles/classic/header.css">
-		
 	</head>
 	
 	<body>
@@ -51,8 +54,18 @@
 				Plantes possédées
 			</h1>
 			
-			<div id="tiles-container">
-				<?php displayFlower("Geranium spp.", "Géranium Vivace", "Géraniacées", 1.5, 0.8); ?>
+			<div id="tiles-container" class="flex-row-sparound-center">
+				<?php
+					if(isset($plants) && is_array($plants) && count($plants) > 0) {
+						foreach($plants as &$plant)
+							displayFlower($plant['botanical_name'], $plant['name'], $plant['family_name'],
+								$plant['heigth'], $plant['width'], $plant['quantity'], $plant['path_picture']);
+					} else {
+						
+						echo "<p>Vous ne possédez pas encore de plantes</p>";
+					}
+					
+				?>
 			</div>
 			
 		</section>

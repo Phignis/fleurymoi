@@ -61,6 +61,13 @@
 	align-items: flex-end;
 }
 
+.flex-row-sparound-center {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
 .fixed-top-center {
 	position: fixed;
 	top: 9rem;

@@ -9,6 +9,18 @@
 	
 	function displayLandingPage() {
 		if(isset($_SESSION['email']) || !empty($_SESSION['email'])) {
+			global $serverName, $userName, $password, $dbName; // get global variables
+			require('./programmation/plants.php');
+			
+			$conn = connectToDB($serverName, $userName, $password, $dbName);
+			
+			if($conn) {
+				$plants = getPossededPlants($conn, ...formatAsQueryArgs($_SESSION['email']));
+				disconnectFromDB($conn);
+			} else {
+				global $errors;
+				$errors[] = "connexion à la base de données impossible";
+			}
 			require('./views/listPossededPlants.php');
 		} else {
 			require('./views/landingPage.php');

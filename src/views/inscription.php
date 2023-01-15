@@ -28,26 +28,33 @@
 			<h1 class="page_title">
 				Inscription
 			</h1>
-			<form id="inscription_form" class="flex-column-start-left" name="inscription_form" method="post" action="index.php?action=newInscription">
-				<div class="spaced">
-					<label for="name">Nom : *</label>
-					<input type="text" name="name" id="name" placeholder="name" size="30" maxlength="50">
+			<div class="flex-row-start-center" id="inscription_part">
+				<form id="inscription_form" class="flex-column-start-left" name="inscription_form" method="post" action="index.php?action=newInscription">
+					<div class="spaced">
+						<label for="name">Nom : *</label>
+						<input type="text" name="name" id="name" placeholder="name" size="30" maxlength="50">
+					</div>
+					<div class="spaced">
+						<label for="email">Email : *</label>
+						<input type="email" name="email" id="email" placeholder="email" size="30" maxlength="40">
+					</div>
+					<div class="spaced">
+						<label for="password">Mot de passe : *</label>
+						<input type="password" name="password" id="password" placeholder="password" size="40">
+					</div>
+					<div class="spaced">
+						<label for="birthdate">Date de naissance :</label>
+						<input type="date" name="birthdate" id="birthdate">
+						<p class="legend" id="birthLegend">des surprises pourraient vous attendre...</p>
+					</div>
+					<input type="submit" class="interactible-button" id="inscription_button" value="S'inscrire">
+				</form>
+				<div>
+					<a href="index.php?action=connexion" class="link-default">
+						déjà un compte?
+					</a>
 				</div>
-				<div class="spaced">
-					<label for="email">Email : *</label>
-					<input type="email" name="email" id="email" placeholder="email" size="30" maxlength="40">
-				</div>
-				<div class="spaced">
-					<label for="password">Mot de passe : *</label>
-					<input type="password" name="password" id="password" placeholder="password" size="40">
-				</div>
-				<div class="spaced">
-					<label for="birthdate">Date de naissance :</label>
-					<input type="date" name="birthdate" id="birthdate">
-					<p class="legend" id="birthLegend">des surprises pourraient vous attendre...</p>
-				</div>
-				<input type="submit" class="interactible-button" id="connect_button" value="S'inscrire">
-			</form>
+			</div>
 		</section>
 		
 		

@@ -1,37 +1,45 @@
 .plant_tile {
-	background-color: var(--interactible-background-active-color);
+	background-color: var(--interactible-background-color);
 	width: 13rem;
-	min-height: 15rem;
+	height: 21rem;
 	box-shadow: 0.05rem 0.05rem 0.3rem var(--interactible-lighter-color);
 	color: var(--interactible-color);
-	border-radius: 0.3rem;
+	border-radius: 0.5rem;
+	margin: 0 1.5rem 1rem 0rem;
 }
 
 .plant_tile:hover {
 	padding: 0.2rem;
+	background-color: var(--interactible-background-active-color);
 	box-shadow: 0.05rem 0.05rem 0.3rem  var(--interactible-color);
 	color: var(--interactible-lighter-color);
 	border-radius: 0.4rem;
-	transition: padding 200ms linear, box-shadow 200ms linear, color 200ms linear, border-radius 200ms linear;
+	transition: padding 200ms linear, box-shadow 200ms linear, background-color 200ms linear, color 200ms linear, border-radius 200ms linear;
 }
 
-.plant_tile * {
-	font-weight: bolder;
+.main-info {
+	font-weight: bold;
 }
 
 .plant_tile img {
 	max-width: 13rem;
-	margin-bottom: 1rem;
+	height: 9rem;
+	margin-bottom: 0.2rem;
 	border-radius: 0.6rem 0.6rem 0 0;
 }
 
 .plant_tile #div-text {
+	height: 11rem;
 	border-top: 0.2rem solid var(--primary-color);
 	padding-top: 0.1rem;
+	border-bottom: 0.2rem solid var(--primary-color);
 }
 
-.plant_tile #div-text *:last-child {
-	border-bottom: 0.3rem solid var(--primary-color);
-	text-transform: uppercase;
-	margin: 1rem 0rem;
+#div-text * {
+	margin-top: 0.2rem;
+}
+
+#div-text * p {
+	text-align: center;
+	max-width: 10.5rem;
 }

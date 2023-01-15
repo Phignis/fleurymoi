@@ -33,7 +33,7 @@
 		return $paramsToFormat;
 	}
 	
-	function connectToDB(string $serverName, string $userName, string $password, string $dbName) {
+	function connectToDB(string $serverName, string $userName, string $password, string $dbName) : ?mysqli {
 		
 		if(!empty($serverName) && !empty($userName) && !empty($password)
 			&& !empty($dbName)) {
@@ -41,7 +41,12 @@
 			$conn = new mysqli($serverName, $userName, $password, $dbName);
 			
 			// Check connection
-			if (!($conn->connect_error)){
+			if (!($conn->connect_error)) {
+				/*
+				 * don't define collation : $conn->set_charset('utf8mb4');
+				 * setup encoding and collection below, to get accentued accent for french
+				 */
+				$conn->query("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
 				return $conn;
 			}
 		}
