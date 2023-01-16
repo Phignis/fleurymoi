@@ -62,7 +62,7 @@
 						onClick="closeElementByButton(this, 2)">x</button>
 					<script src="ressources/js/closeElementByButton.js"></script>
 				</div>
-				<div id="modal_content">
+				<div id="modal_content" class="flex-row-start-center">
 				</div>
 			</section>
 			

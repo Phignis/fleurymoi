@@ -53,3 +53,25 @@
 	height: 60%;
 	padding: 0.5rem 1rem;
 }
+
+#plant_modal #modal_content {
+	margin-top: 1rem;
+}
+
+#plant_modal #modal_content .basic_info {
+	max-width: 40%;
+	height: 100%;
+}
+
+#plant_modal #modal_content .detailled_info {
+	width: 60%;
+	height: 100%;
+}
+
+#plant_modal #modal_content .basic_info .plant_picture {
+	height: 16rem;
+}
+
+.smaller_modal_text {
+	font-size: 0.8rem;
+}

@@ -19,11 +19,25 @@
 	align-items: center;
 }
 
+.flex-column-sparound-start {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+
 .flex-row-sparound-left {
 	display: flex;
 	flex-flow: column wrap;
 	justify-content: space-around;
-	align-items: left;
+	align-items: flex-start;
+}
+
+.flex-row-sparound-right {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-around;
+	align-items: flex-end;
 }
 
 .flex-column-start-right {

@@ -5,10 +5,68 @@ const showModal = (modalToShow) => {
 }
 
 const fillModal = (divTextModal, plantInfos) => {
-	divTextModal.innerHtml = `<img src='${plantInfos.path_picture}'
-		alt='${plantInfos.botanical_name}' >`;
-	console.log(divTextModal.innerHtml);
-	console.log(divTextModal);
+	let fDiv = document.createElement('div');
+	fDiv.classList.add("basic_info", "flex-column-sparound-start");
+	let sDiv = document.createElement('div');
+	sDiv.classList.add("detailled_info", "flex-column-sparound-center");
+	
+	divTextModal.appendChild(fDiv);
+	divTextModal.appendChild(sDiv);
+	
+	let img = document.createElement('img');
+	img.src = plantInfos.path_picture;
+	img.alt = plantInfos.botanical_name;
+	img.classList.add("plant_picture");
+	fDiv.appendChild(img);
+	
+	let pName = document.createElement('p');
+	pName.innerText = "Nom: " + plantInfos.name;
+	fDiv.appendChild(pName);
+	
+	let pFName = document.createElement('p');
+	pFName.innerText = "Famille: " + plantInfos.family_name;
+	fDiv.appendChild(pFName);
+	
+	let pFDescrip = document.createElement('p');
+	pFDescrip.innerText = "Description de la famille: ";
+	let span = document.createElement('span');
+	span.classList.add('smaller_modal_text');
+	span.innerText = plantInfos.description;
+	pFDescrip.appendChild(span);
+	
+	fDiv.appendChild(pFDescrip);
+	
+	let dim = document.createElement('p');
+	dim.innerText = "Dimensions (hxL): " + plantInfos.heigth + "x" + plantInfos.width + "m";
+	fDiv.appendChild(dim);
+	
+	let flowering = document.createElement('p');
+	flowering.innerText = "Floraison: " + plantInfos.flowering_period;
+	sDiv.appendChild(flowering);
+	
+	let insolation = document.createElement('p');
+	insolation.innerText = "Exposition: " + plantInfos.insolation;
+	sDiv.appendChild(insolation);
+	
+	let land = document.createElement('p');
+	land.innerText = "Terre: " + plantInfos.land;
+	sDiv.appendChild(land);
+	
+	let watering = document.createElement('p');
+	watering.innerText = "Arrosage: " + plantInfos.watering;
+	sDiv.appendChild(watering);
+	
+	let sowingPeriod = document.createElement('p');
+	sowingPeriod.innerText = "semis: " + plantInfos.sowing_period;
+	sDiv.appendChild(sowingPeriod);
+	
+	let plantingPeriod = document.createElement('p');
+	plantingPeriod.innerText = "Période de plantation: " + plantInfos.planting_period;
+	sDiv.appendChild(plantingPeriod);
+	
+	let quantity = document.createElement('input');
+	quantity.value = plantInfos.quantity;
+	sDiv.appendChild(quantity);
 }
 
 const showDetailledInfoOfPlant = async (botanicalName) => {
@@ -55,6 +113,7 @@ const showDetailledInfoOfPlant = async (botanicalName) => {
 	if(result == false || !result ) 
 		divTextModal.innerText = "Email ou nom botanique non trouvé en base de données. impossible de trouver les informations";
 	else if(result && result instanceof Array && result.length > 0) {
+		divTextModal.innerText = ""; // erase content first
 		fillModal(divTextModal, result[0])
 		if(result.length > 1) console.warn("Plus d'une référence de plante a été trouvé!", result);
 	}
