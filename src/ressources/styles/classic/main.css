@@ -114,6 +114,17 @@ body {
 	transition: color 100ms linear, border-color 100ms linear, background-color 100ms linear;
 }
 
+.closing_button {
+	background-color: var(--secondary-darker-color);
+	height: 1.5rem;
+	width: 1.5rem;
+	border-radius: 50%;
+}
+
+.closing_button:hover {
+	background-color: var(--interactible-lighter-color);
+}
+
 .message {
 	display: block;
 	padding: 0.5rem;

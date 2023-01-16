@@ -59,7 +59,7 @@
 				<div class="flex-row-spbetween-center">
 					<h3>No plant selected</h3>
 					<button type="button" class="closing_button"
-						onClick="closeElementByButton(this, 2)">x</button>
+						onClick="closeElementByButton(this, 2)"></button>
 					<script src="ressources/js/closeElementByButton.js"></script>
 				</div>
 				<div id="modal_content" class="flex-row-start-center">
