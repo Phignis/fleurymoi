@@ -9,12 +9,12 @@
 }
 
 .plant_tile:hover {
-	padding: 0.2rem;
 	background-color: var(--interactible-background-active-color);
 	box-shadow: 0.05rem 0.05rem 0.3rem  var(--interactible-color);
 	color: var(--interactible-lighter-color);
 	border-radius: 0.4rem;
-	transition: padding 200ms linear, box-shadow 200ms linear, background-color 200ms linear, color 200ms linear, border-radius 200ms linear;
+	transform: scale(1.03);
+	transition: all 200ms linear;
 }
 
 .main-info {
@@ -28,14 +28,28 @@
 	border-radius: 0.6rem 0.6rem 0 0;
 }
 
-.plant_tile #div-text {
+.plant_tile .div-info {
 	height: 11rem;
 	border-top: 0.2rem solid var(--primary-color);
 	padding-top: 0.1rem;
 	border-bottom: 0.2rem solid var(--primary-color);
 }
 
-#div-text * p {
+.div-info * p {
 	text-align: center;
 	max-width: 10.5rem;
+}
+
+.div-info .family {
+	text-transform: uppercase;
+}
+
+#plant_modal {
+	z-index: 2;
+	background-color: var(--primary-lighter-color);
+	border: 0.2rem solid var(--primary-color);
+	border-radius: 0.5rem;
+	width: 50%;
+	height: 60%;
+	padding: 0.5rem 1rem;
 }

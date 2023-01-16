@@ -16,6 +16,16 @@
 	$successColor = '#b8ddab';
 	$errorColor = '#f48282';
 	
+	$actionList = ['accueil', 'inscription', 'connexion', 'deconnexion', 'account', 'newInscription', 'sessionCreate', 'modifyAccount'];
+
+	$serverName = 'localhost';
+	$userName = 'access_fleurYmoi';
+	$password = 'fleurYmoi63&';
+	$dbName = 'fleurYmoi';
+	
+	$errors = []; // table having all errors messages related to requests
+	$success = []; // table having all success messages related to requests
+	
 	function getColors() {
 		global $primaryColor, $primaryLighterColor, $primaryBackgroundLighter, $secondaryColor, $secondaryDarkerColor,
 			$interactibleColor, $interactibleLighterColor, $interactibleSecondaryColor, $interactibleBackgroundColor,
@@ -40,18 +50,36 @@
 		
 		echo json_encode($colors); // we return to caller the colors, in JSON format
     }
+    
+    function getPlant() { // intended to be called with origin set here
+		if(session_status() == PHP_SESSION_NONE) session_start();
+		
+		global $serverName, $userName, $password, $dbName, $errors, $success; // get global variables
+		if(file_exists("session.php")) {
+			// called from indexs.php
+			require("session.php"); // origin here, if not, let app crash
+			require("../database/dataBase.php");
+			require("../programmation/plants.php");
+		} else { // may be context from index.php, if not require will end app
+			require("programmation/plants.php");
+		}
+		
+		$conn = connectToDB($serverName, $userName, $password, $dbName);
+		if($conn) {
+			echo json_encode(getDetailledInformation($conn, ...formatAsQueryArgs($_SESSION["email"],
+				$_GET["botanical_name"])));
+			disconnectFromDB($conn);
+		} else {
+			$errors[] = "connexion à la base de données impossible";
+			echo json_encode(false);
+		}
+		$_SESSION["errors"] = $errors; // save tabs for future display
+		$_SESSION["success"] = $success;
+	}
 	
 	if(isset($_GET["fetchTheme"]) && $_GET["fetchTheme"] == true) // run func only if contact is to fetch theme, requested by get
 		getColors();
-
 	
-
-	$actionList = ['accueil', 'inscription', 'connexion', 'deconnexion', 'account', 'newInscription', 'sessionCreate', 'modifyAccount'];
-
-	$serverName = 'localhost';
-	$userName = 'access_fleurYmoi';
-	$password = 'fleurYmoi63&';
-	$dbName = 'fleurYmoi';
-	
-	$errors = []; // table having all errors messages related to requests
-	$success = []; // table having all success messages related to requests
+	if(isset($_GET["getPlant"]) && $_GET["getPlant"] == true
+		&& isset($_GET["botanical_name"]) && !empty($_GET["botanical_name"]))
+		getPlant();

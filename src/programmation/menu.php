@@ -107,7 +107,7 @@
 							// format password is not necessary, but unpacking operation has to be last param
 							if(connect($conn, ...formatAsQueryArgs($_REQUEST["email"], $_REQUEST["password"]))) {
 								// success
-								$success[] = "connexion reussie";
+								$success[] = "connexion réussie";
 								displayLandingPage();
 							} else {
 								require('./views/connexion.php');

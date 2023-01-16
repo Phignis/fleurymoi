@@ -2,9 +2,10 @@
 	function displayFlower(string $botanicalName, string $name, string $familyName,
 		float $heigth, float $width, int $quantity, string $pathToImg) : void {
 			?>
-			<div class="plant_tile <?php echo $familyName; // to filter by family in future ?> flex-column-start-center">
+			<div class="plant_tile <?php echo $familyName; // to filter by family in future ?> flex-column-start-center"
+				onClick="showDetailledInfoOfPlant(<?php echo "'$botanicalName'"; ?>);">
 				<img src="<?php echo $pathToImg; ?>" alt="<?php echo $botanicalName ?>">
-				<div class="flex-column-sparound-center" id="div-text">
+				<div class="flex-column-sparound-center div-info">
 					<div>
 						<p class="main-info"><?php echo $name; ?></p>
 						<p><?php echo $botanicalName; ?></p>
@@ -53,6 +54,19 @@
 			<h1 class="page_title">
 				Plantes possédées
 			</h1>
+			
+			<section id="plant_modal" class="hidden">
+				<div class="flex-row-spbetween-center">
+					<h3>No plant selected</h3>
+					<button type="button" class="closing_button"
+						onClick="closeElementByButton(this, 2)">x</button>
+					<script src="ressources/js/closeElementByButton.js"></script>
+				</div>
+				<div id="modal_content">
+				</div>
+			</section>
+			
+			<script src="ressources/js/plant_modal/showDetailledInfoOfPlant.js"></script>
 			
 			<div id="tiles-container" class="flex-row-sparound-center">
 				<?php

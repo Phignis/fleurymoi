@@ -31,6 +31,10 @@
 	--title-font: 'Sofia Sans Semi Condensed', sans-serif;
 }
 
+#messages {
+	z-index: 3;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -47,10 +51,10 @@ body {
 }
 
 #page_content {
+	width: 100%;
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 0rem 1rem;
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
