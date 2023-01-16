@@ -89,6 +89,12 @@
 	align-items: center;
 }
 
+.fixed-bottom-right {
+	position: fixed;
+	bottom: 3rem;
+	right: 4rem;
+}
+
 .fixed-center-center {
 	position: fixed;
 	top: 50%;

@@ -75,3 +75,7 @@
 .smaller_modal_text {
 	font-size: 0.8rem;
 }
+
+#button_non_posseded {
+	padding: 1rem;
+}

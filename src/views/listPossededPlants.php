@@ -41,11 +41,11 @@
 		<link rel="stylesheet" href="ressources/styles/classic/listPossededPlants.css">
 		<link rel="stylesheet" href="ressources/styles/layout.css">
 		<link rel="stylesheet" href="ressources/styles/classic/header.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	</head>
 	
 	<body>
 		<?php require("ressources/html_parts/header.php"); ?>
-		
 		
 		<div id="messages" class="hidden"></div>
 		
@@ -84,6 +84,10 @@
 			
 		</section>
 		
+		<button type="button" onClick="getNonPossededPlants()"
+			class="interactible-round-button fixed-bottom-right" id="button_non_posseded"><i class="material-icons">favorite</i></button>
+		
+		<script src="ressources/js/plant_modal/getNonPossededPlants.js"></script>
 		
 		<?php include("ressources/html_parts/footer.php"); // we can print page without footer (no important infos) ?>
 		

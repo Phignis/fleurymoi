@@ -1,6 +1,5 @@
 <?php
-	function getPossededPlants(mysqli $dbConnexion, string $emailPossessor) {
-		
+	function getPossededPlants(mysqli $dbConnexion, string $emailPossessor) {		
 		/*
 		 * inner join allows us to join the plant data if botanical name are equals
 		 */
@@ -9,7 +8,7 @@
 			" WHERE pp.email_possessor=$emailPossessor";
 		$result =  executeQuery($query, $dbConnexion);
 		
-		if($result) {
+		if(is_array($result)) {
 			global $success;
 			$success[] = "plantes récupérées avec succès";
 		} else {
@@ -35,6 +34,24 @@
 		} else {
 			global $errors;
 			$errors[] = "email ou nom botanique invalide";
+		}
+		
+		return $result;
+	}
+	
+	function getNonPossededPlants(mysqli $dbConnexion, string $emailPossessor) {
+		$query = "SELECT botanical_name, name FROM plant_t" .
+			" WHERE botanical_name NOT IN (SELECT botanical_name" .
+			" FROM posseded_plant_tj WHERE email_possessor=$emailPossessor)";
+			
+		$result = executeQuery($query, $dbConnexion);
+		
+		if($result) {
+			global $success;
+			$success[] = "données récupérées";
+		} else {
+			global $errors;
+			$errors[] = "email invalide";
 		}
 		
 		return $result;

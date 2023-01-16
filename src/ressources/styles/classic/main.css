@@ -104,14 +104,34 @@ body {
 .interactible-button:hover {
 	border-radius: 0.5rem;
 	box-shadow: 0.1rem 0.05rem;
-	transition: border-radius 100ms linear, box-shadow 100ms linear;
+	transition: all 100ms linear;
 }
 
 .interactible-button:active {
 	color:var(--interactible-lighter-color);
 	border-color: var(--interactible-lighter-color);
 	background-color: white;
-	transition: color 100ms linear, border-color 100ms linear, background-color 100ms linear;
+	transition: all linear;
+}
+
+.interactible-round-button {
+	color: var(--interactible-color);
+	border: 0.2rem solid var(--interactible-color);
+	border-radius: 100%;
+	padding: 0.2rem 0.3rem;
+	background-color: var(--interactible-secondary-color);
+}
+
+.interactible-round-button:hover {
+	box-shadow: 0.1rem 0.05rem;
+	transition: box-shadow 100ms linear;
+}
+
+.interactible-round-button:active {
+	color:var(--interactible-lighter-color);
+	border-color: var(--interactible-lighter-color);
+	background-color: white;
+	transition: all 100ms linear;
 }
 
 .closing_button {
