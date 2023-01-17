@@ -77,7 +77,7 @@
 		$_SESSION["success"] = $success;
 	}
 	
-	function getAddablePlants() {
+	function getInteractiblePlants() {
 		if(session_status() == PHP_SESSION_NONE) session_start();
 	
 		global $serverName, $userName, $password, $dbName, $errors, $success; // get global variables
@@ -91,7 +91,30 @@
 		}
 		$conn = connectToDB($serverName, $userName, $password, $dbName);
 		if($conn) {
-			echo json_encode(getNonPossededPlants($conn, ...formatAsQueryArgs($_SESSION["email"])));
+			echo json_encode(getPossededPlants($conn, ...formatAsQueryArgs($_SESSION["email"])));
+			disconnectFromDB($conn);
+		} else {
+			$errors[] = "connexion à la base de données impossible";
+			echo json_encode(false);
+		}
+		$_SESSION["errors"] = $errors; // save tabs for future display
+		$_SESSION["success"] = $success;
+	}
+	
+	function getPlants() {
+		global $serverName, $userName, $password, $dbName, $errors, $success; // get global variables
+		
+		if(file_exists("session.php")) {
+			// called from indexs.php
+			require("session.php"); // origin here, if not, let app crash
+			require("../database/dataBase.php");
+			require("../programmation/plants.php");
+		} else { // may be context from index.php, if not require will end app
+			require("programmation/plants.php");
+		}
+		$conn = connectToDB($serverName, $userName, $password, $dbName);
+		if($conn) {
+			echo json_encode(getPlantsNames($conn));
 			disconnectFromDB($conn);
 		} else {
 			$errors[] = "connexion à la base de données impossible";
@@ -127,6 +150,32 @@
 		$_SESSION["success"] = $success;
 	}
 	
+	function deletePossededPlant() {
+		if(session_status() == PHP_SESSION_NONE) session_start();
+	
+		global $serverName, $userName, $password, $dbName, $errors, $success; // get global variables
+		if(file_exists("session.php")) {
+			// called from indexs.php
+			require("session.php"); // origin here, if not, let app crash
+			require("../database/dataBase.php");
+			require("../programmation/plants.php");
+		} else { // may be context from index.php, if not require will end app
+			require("programmation/plants.php");
+		}
+		$conn = connectToDB($serverName, $userName, $password, $dbName);
+		if($conn) {
+			//~ echo json_encode(true);
+			echo json_encode(removePossededPlant($conn,
+				...formatAsQueryArgs($_SESSION["email"], $_GET["botanical_name"])));
+			disconnectFromDB($conn);
+		} else {
+			$errors[] = "connexion à la base de données impossible";
+			echo json_encode(false);
+		}
+		$_SESSION["errors"] = $errors; // save tabs for future display
+		$_SESSION["success"] = $success;
+	}
+	
 	if(isset($_GET["fetchTheme"]) && $_GET["fetchTheme"] == true) // run func only if contact is to fetch theme, requested by get
 		getColors();
 	
@@ -135,9 +184,16 @@
 		getPlant();
 		
 	if(isset($_GET["getNonPossededPlants"]) && $_GET["getNonPossededPlants"] == true)
-		getAddablePlants();
-		
+		getInteractiblePlants();
+	
+	if(isset($_GET["getPlants"]) && $_GET["getPlants"] == true)
+		getPlants();
+	
 	if(isset($_GET["addOrUpdatePossededPlant"]) && $_GET["addOrUpdatePossededPlant"] == true
 		&& isset($_GET["botanical_name"]) && !empty($_GET["botanical_name"])
 		&& isset($_GET["quantity"]) && !empty($_GET["quantity"]))
-	addOrUpdatePossededPlant();
+		addOrUpdatePossededPlant();
+	
+	if(isset($_GET["deletePossededPlant"]) && $_GET["deletePossededPlant"]
+		&& isset($_GET["botanical_name"]) && !empty($_GET["botanical_name"]))
+		deletePossededPlant();

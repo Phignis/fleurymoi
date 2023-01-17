@@ -1,5 +1,4 @@
 const addOrUpdatePlantOfUser = async (botanicalName, quantity) => {
-	
 	if(botanicalName && quantity && parseInt(quantity, 10) == quantity && typeof botanicalname != "string") {
 		let fetched = await fetch(
 			"/config/config.php?" +

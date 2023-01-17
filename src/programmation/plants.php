@@ -19,6 +19,12 @@
 		return $result;
 	}
 	
+	function getPlantsNames(mysqli $dbConnexion) {
+		$query = "SELECT botanical_name, name FROM plant_t";
+		
+		return executeQuery($query, $dbConnexion);
+	}
+	
 	function getDetailledInformation(mysqli $dbConnexion, string $emailPossessor, string $botanicalName) {
 		 
 		 $query = "SELECT p.*, pp.quantity, pf.description FROM posseded_plant_tj pp" .
@@ -34,24 +40,6 @@
 		} else {
 			global $errors;
 			$errors[] = "email ou nom botanique invalide";
-		}
-		
-		return $result;
-	}
-	
-	function getNonPossededPlants(mysqli $dbConnexion, string $emailPossessor) {
-		$query = "SELECT botanical_name, name FROM plant_t" .
-			" WHERE botanical_name NOT IN (SELECT botanical_name" .
-			" FROM posseded_plant_tj WHERE email_possessor=$emailPossessor)";
-			
-		$result = executeQuery($query, $dbConnexion);
-		
-		if($result) {
-			global $success;
-			$success[] = "données récupérées";
-		} else {
-			global $errors;
-			$errors[] = "email invalide";
 		}
 		
 		return $result;
@@ -77,4 +65,20 @@
 		}
 		
 		return false;
+	}
+	
+	function removePossededPlant(mysqli $dbConnexion, string $emailPossessor, string $botanicalName) : bool {
+		$query = "DELETE FROM posseded_plant_tj WHERE email_possessor=$emailPossessor AND botanical_name=$botanicalName";
+		
+		$result = executeQuery($query, $dbConnexion);
+		
+		if($result) {
+			global $success;
+			$success[] = "$botanicalName n'est plus possédé!";
+		} else {
+			global $errors;
+			$errors[] = "$botanicalName n'a pas été supprimé!";
+		}
+		
+		return $result;
 	}

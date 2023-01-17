@@ -64,21 +64,8 @@ const fillModal = (divTextModal, plantInfos) => {
 	plantingPeriod.innerText = "Période de plantation: " + plantInfos.planting_period;
 	sDiv.appendChild(plantingPeriod);
 	
-	let form = document.createElement('form');
-	form.classList.add("form_plant");
-	sDiv.appendChild(form);
-	
-	let quantity = document.createElement('input');
-	console.log(quantity);
-	quantity.name = 'quantity';
-	quantity.type = 'number';
-	quantity.value = plantInfos.quantity;
-	quantity.placeholder = 'quantité';
-	quantity.size = 5;
-	quantity.min = 1;
-	quantity.max = 99999;
-	quantity.style.textAlign = "center";
-	form.appendChild(quantity);
+	let quantity = document.createElement('p');
+	plantingPeriod.innerText = "Quantité possédé: " + plantInfos.quantity;
 }
 
 const showDetailledInfoOfPlant = async (botanicalName) => {

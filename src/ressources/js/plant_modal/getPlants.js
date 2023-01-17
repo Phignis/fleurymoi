@@ -1,4 +1,4 @@
-const sendNewPossededPlant = async (formInfo, buttonToAnimate) => {	
+const sendNewOrUpdatePossededPlant = async (formInfo, buttonToAnimate) => {	
 	let selectPlant = formInfo.querySelector("#add_posseded_plant #add_posseded_plant_form select[name='plant_name']");
 	let quantityInput = formInfo.querySelector("#add_posseded_plant #add_posseded_plant_form input[name='quantity']");
 	
@@ -15,21 +15,24 @@ const sendNewPossededPlant = async (formInfo, buttonToAnimate) => {
 	let oldColor = formInfo.style.backgroundColor;
 	formInfo.style.backgroundColor = "grey";
 	
-	await addOrUpdatePlantOfUser(selectPlant.value.split('-')[0], quantityInput.value); // wait for add or update to make form disappears
+	if(await addOrUpdatePlantOfUser(selectPlant.value.split('-')[0], quantityInput.value))// wait for add or update to make form disappears
+		location.reload();
+	else {
+		formInfo.classList.remove("padding-appears");
+		formInfo.classList.add("right-hidden-padding");
 	
-	formInfo.classList.remove("padding-appears");
-	formInfo.classList.add("right-hidden-padding");
+		formInfo.style.backgroundColor = oldColor;
+		buttonToAnimate.onclick = getPlants;
+		buttonToAnimate.innerText = "";
+		buttonToAnimate.appendChild(icon);
 	
-	formInfo.style.backgroundColor = oldColor;
-	buttonToAnimate.onclick = getNonPossededPlants;
-	buttonToAnimate.innerText = "";
-	buttonToAnimate.appendChild(icon);
+		selectPlant.innerText = ""; // empty old available options
+		quantityInput.value = "";
+	}
 	
-	selectPlant.innerText = ""; // empty old available options
-	quantityInput.value = "";
 }
 
-const getNonPossededPlants = async () => {
+const getPlants = async () => {
 	
 	// prefer long query rather than id, to indicate what are parents
 	
@@ -47,7 +50,7 @@ const getNonPossededPlants = async () => {
 	let fetched = await fetch(
 		"/config/config.php?" +
 		new URLSearchParams({
-			getNonPossededPlants: true,
+			getPlants: true,
 		}),
 		{
 			method: "GET",
@@ -77,7 +80,7 @@ const getNonPossededPlants = async () => {
 		
 		button.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], 400);
 		
-		button.onclick = () => {sendNewPossededPlant(formToDisplay, button);}
+		button.onclick = () => { sendNewOrUpdatePossededPlant(formToDisplay, button); }
 		button.innerText = "";
 		button.appendChild(icon);
 		
