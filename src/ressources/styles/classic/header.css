@@ -41,6 +41,10 @@ header #account {
 	padding-right: 2rem;
 }
 
+header #account #session_actions .mail_icon {
+	height: 3.8rem;
+}
+
 header #account #session_actions .exitButton {
 	height: 3.8rem;
 	margin-left: 3rem;
@@ -48,6 +52,7 @@ header #account #session_actions .exitButton {
 
 header #account #session_actions .pp_account {
 	height: 3.8rem;
+	margin-left: 3rem;
 }
 
 header #account #session_actions .pp_account:hover, header #account #session_actions .exitButton:hover {

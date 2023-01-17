@@ -7,6 +7,9 @@
 		
 		<div id="account" class="flex-column-center-center">
 			<div id="session_actions" class="flex-row-center-center">
+				<a href="index.php?action=contact">
+					<?php include('ressources/images/icons/mail.php'); ?>
+				</a>
 				<a href="index.php?action=<?php echo (isset($_SESSION['connected']) && $_SESSION['connected'] == true) ? "account" : "connexion"?>">
 					<?php
 						// if profile picture is set, we set this to src, else default used
