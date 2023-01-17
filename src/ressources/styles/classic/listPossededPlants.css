@@ -101,5 +101,5 @@
 	z-index: 1; /* appears below button_non_posseded */
 	background-color: var(--interactible-background-active-color);
 	padding: 0.3rem 0.5rem;
-	border-radius: 0 1rem 1rem 0;
+	border-radius: 1rem 0 0 1rem;
 }

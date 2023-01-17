@@ -45,6 +45,10 @@
 			// switch sur les actions possibles
 			if (in_array($_REQUEST['action'], $actionList)){
 				switch($_REQUEST['action']) {
+					case 'contact':
+						require('./views/contact.php');
+						break;
+					
 					case 'inscription':
 						require('./views/inscription.php');
 						break;

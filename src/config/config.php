@@ -16,7 +16,7 @@
 	$successColor = '#b8ddab';
 	$errorColor = '#f48282';
 	
-	$actionList = ['accueil', 'inscription', 'connexion', 'deconnexion', 'account', 'newInscription', 'sessionCreate', 'modifyAccount'];
+	$actionList = ['accueil', 'contact', 'inscription', 'connexion', 'deconnexion', 'account', 'newInscription', 'sessionCreate', 'modifyAccount'];
 
 	$serverName = 'localhost';
 	$userName = 'access_fleurYmoi';

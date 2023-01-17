@@ -13,10 +13,6 @@
 	padding-left: 2rem;
 }
 
-#inscription_form .spaced {
-	padding: 0.5rem 0rem;
-}
-
 #birthLegend {
 	text-align: center;
 	color:var(--secondary-darker-color)

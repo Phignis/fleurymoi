@@ -166,6 +166,10 @@ body {
 	background-color: var(--error-color);
 }
 
+.spaced {
+	padding: 0.5rem 0rem;
+}
+
 label {
 	color: var(--primary-color);
 	font-weight: bolder;
@@ -182,6 +186,11 @@ input:focus, select:hover {
 	padding: 0.3rem 0.3rem;
 	border-width: 0.20rem;
 	transition: all linear;
+}
+
+legend {
+	background-color: var(--interactible-color);
+	color: var(--interactible-background-color);
 }
 
 @keyframes fadeSlideInRight {
