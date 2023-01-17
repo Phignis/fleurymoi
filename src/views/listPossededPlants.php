@@ -89,7 +89,8 @@
 		
 		<div class="fixed-bottom-right flex-row-start-center" id="add_posseded_plant">
 			<form id="add_posseded_plant_form" class="right-hidden-padding">
-				<select name="plant_name" disabled>
+				<select name="plant_name" disabled
+					onmousedown="if(this.options.length>3){this.size=3;}">
 				</select>
 				<input type="number" min="1" max="99999" name="quantity" disabled>
 			</form>

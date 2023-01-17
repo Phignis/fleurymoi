@@ -13,8 +13,9 @@
 ## Premier lancement
 
 > Assurez vous d'avoir lancé un serveur pour executer le PHP, et d'avoir une BDD MySQL.
-
-
+> Lancer [le script suivant](src/database/fleur-y-moi.sql) pour créer la base de données.
+> Ajouter le dossier [src](./src) en temps que virtual host, interprétable par un préprocesseur php
+>
 
 ## Consigne encadrant le projet
 > ###### Projet :
