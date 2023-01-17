@@ -29,8 +29,8 @@ header .logo_fleurYmoi {
 }
 
 header .logo_fleurYmoi:hover {
-	width: 10.5rem;
-	transition: width 200ms linear;
+	transform: scale(1.15);
+	transition: all 200ms linear;
 }
 
 header .logo_fleurYmoi .y_part {
@@ -51,8 +51,8 @@ header #account #session_actions .pp_account {
 }
 
 header #account #session_actions .pp_account:hover, header #account #session_actions .exitButton:hover {
-	height: 4rem;
-	transition: height 100ms linear;
+	transform: scale(1.15);
+	transition: all 200ms ease-in-out;
 }
 
 #custom_pp_head {

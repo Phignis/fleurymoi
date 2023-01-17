@@ -56,3 +56,24 @@
 		
 		return $result;
 	}
+	
+	function pushPlantPossededInfo(mysqli $dbConnexion, string $emailPossessor, string $botanicalname, int $quantity) {
+		$query = "INSERT INTO posseded_plant_tj VALUES($emailPossessor, $botanicalName, $quantity)";
+		
+		global $success;
+		
+		if(executeQuery($query, $dbConnexion)) {
+			$success[] = "$botanicalname bien inséré!";
+			return true;
+		} else { // maybe it is for update
+			$query = "UPDATE posseded_plant_tj SET quantity=$quantity WHERE email_possessor=$emailPossessor AND botanical_name=$botanicalName";
+			if(executeQuery($query, $dbConnexion)) {
+				$success[] = "quantité de $botanicalname bien modifié!";
+				return true;
+			} else {
+				global $errors;
+				$errors[] = "erreur lors de l'ajout des données";
+				return false;
+			}
+		}
+	}

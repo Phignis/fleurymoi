@@ -77,5 +77,29 @@
 }
 
 #button_non_posseded {
-	padding: 1rem;
+	z-index: 2;
+	padding: 0.7rem;
+	color: var(--interactible-color);
+	border: 0.2rem solid var(--interactible-color);
+	border-radius: 100%;
+	background-color: var(--interactible-secondary-color);
+}
+
+#button_non_posseded:hover {
+	box-shadow: 0.1rem 0.05rem;
+	transition: box-shadow 100ms linear;
+}
+
+#button_non_posseded:active {
+	color: var(--interactible-lighter-color);
+	border-color: var(--interactible-lighter-color);
+	background-color: white;
+	transition: all 100ms linear;
+}
+
+#add_posseded_plant_form {
+	z-index: 1; /* appears below button_non_posseded */
+	background-color: var(--interactible-background-active-color);
+	padding: 0.3rem 0.5rem;
+	border-radius: 0 1rem 1rem 0;
 }

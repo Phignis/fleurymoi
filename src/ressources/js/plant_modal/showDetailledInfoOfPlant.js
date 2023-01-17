@@ -69,11 +69,14 @@ const fillModal = (divTextModal, plantInfos) => {
 	sDiv.appendChild(form);
 	
 	let quantity = document.createElement('input');
+	console.log(quantity);
 	quantity.name = 'quantity';
-	quantity.type = 'text';
+	quantity.type = 'number';
 	quantity.value = plantInfos.quantity;
 	quantity.placeholder = 'quantité';
 	quantity.size = 5;
+	quantity.min = 1;
+	quantity.max = 99999;
 	quantity.style.textAlign = "center";
 	form.appendChild(quantity);
 }

@@ -91,7 +91,7 @@
 
 .fixed-bottom-right {
 	position: fixed;
-	bottom: 3rem;
+	bottom: 5rem;
 	right: 4rem;
 }
 
@@ -119,4 +119,3 @@
 .hidden {
 	display: none;
 }
-

@@ -57,9 +57,6 @@
 			</div>
 		</section>
 		
-		
-		<?php include("ressources/html_parts/footer.php"); ?>
-		
 		<script src="ressources/js/displayMessages.js"></script>
 	</body>
 </html>

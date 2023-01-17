@@ -101,6 +101,31 @@
 		$_SESSION["success"] = $success;
 	}
 	
+	function addOrUpdatePossededPlant() {
+		if(session_status() == PHP_SESSION_NONE) session_start();
+	
+		global $serverName, $userName, $password, $dbName, $errors, $success; // get global variables
+		if(file_exists("session.php")) {
+			// called from indexs.php
+			require("session.php"); // origin here, if not, let app crash
+			require("../database/dataBase.php");
+			require("../programmation/plants.php");
+		} else { // may be context from index.php, if not require will end app
+			require("programmation/plants.php");
+		}
+		$conn = connectToDB($serverName, $userName, $password, $dbName);
+		if($conn) {
+			echo json_encode(pushPlantPossededInfo($conn,
+				...formatAsQueryArgs($_SESSION["email"], $_GET["botanical_name"])), $_GET["quantity"]);
+			disconnectFromDB($conn);
+		} else {
+			$errors[] = "connexion à la base de données impossible";
+			echo json_encode(false);
+		}
+		$_SESSION["errors"] = $errors; // save tabs for future display
+		$_SESSION["success"] = $success;
+	}
+	
 	if(isset($_GET["fetchTheme"]) && $_GET["fetchTheme"] == true) // run func only if contact is to fetch theme, requested by get
 		getColors();
 	
@@ -110,3 +135,8 @@
 		
 	if(isset($_GET["getNonPossededPlants"]) && $_GET["getNonPossededPlants"] == true)
 		getAddablePlants();
+
+	if(isset($_GET["addOrUpdatePossededPlant"]) && $_GET["addOrUpdatePossededPlant"] == true
+		&& isset($_GET["botanical_name"]) && !empty($_GET["botanical_name"])
+		&& isset($_GET["quantity"]) && !empty($_GET["quantity"]))
+		addOrUpdatePossededPlant();

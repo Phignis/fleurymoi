@@ -59,7 +59,7 @@
 				<div class="flex-row-spbetween-center">
 					<h3>No plant selected</h3>
 					<button type="button" class="closing_button"
-						onClick="closeElementByButton(this, 2)"></button>
+						onClick="closeElementByButton(this, 2)"><span class="material-icons">close</span></button>
 					<script src="ressources/js/closeElementByButton.js"></script>
 				</div>
 				<div id="modal_content" class="flex-row-start-center">
@@ -84,12 +84,18 @@
 			
 		</section>
 		
-		<button type="button" onClick="getNonPossededPlants()"
-			class="interactible-round-button fixed-bottom-right" id="button_non_posseded"><i class="material-icons">favorite</i></button>
+		<div class="fixed-bottom-right flex-row-start-center" id="add_posseded_plant">
+			<form id="add_posseded_plant_form" class="right-hidden-padding">
+				<select name="plant_name" disabled>
+				</select>
+				<input type="number" min="1" max="99999" size="5" name="quantity" disabled>
+			</form>
+			<button type="button" onClick="getNonPossededPlants()"
+			 id="button_non_posseded"><span class="material-icons">add</span></button>
+		</div>
 		
+		<script src="ressources/js/plant_modal/addOrUpdatePlantOfUser.js"></script>
 		<script src="ressources/js/plant_modal/getNonPossededPlants.js"></script>
-		
-		<?php include("ressources/html_parts/footer.php"); // we can print page without footer (no important infos) ?>
 		
 		<script src="ressources/js/displayMessages.js"></script>
 	</body>

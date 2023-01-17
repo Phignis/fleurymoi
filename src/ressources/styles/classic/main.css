@@ -31,6 +31,24 @@
 	--title-font: 'Sofia Sans Semi Condensed', sans-serif;
 }
 
+/*
+ * Intented to be used in js to transit to padding-appears, and vice-versa
+*/
+.right-hidden-padding {
+	margin-right: -100%;
+	opacity: 0;
+	position: fixed;
+	transition: opacity 50ms linear, margin-right 200ms linear;
+}
+
+.padding-appears {
+	margin-left: 0%;
+	margin-right: 0%;
+	opacity: 1;
+	position: static;
+	transition: all 200ms linear;
+}
+
 #messages {
 	z-index: 3;
 }
@@ -114,30 +132,9 @@ body {
 	transition: all linear;
 }
 
-.interactible-round-button {
-	color: var(--interactible-color);
-	border: 0.2rem solid var(--interactible-color);
-	border-radius: 100%;
-	padding: 0.2rem 0.3rem;
-	background-color: var(--interactible-secondary-color);
-}
-
-.interactible-round-button:hover {
-	box-shadow: 0.1rem 0.05rem;
-	transition: box-shadow 100ms linear;
-}
-
-.interactible-round-button:active {
-	color:var(--interactible-lighter-color);
-	border-color: var(--interactible-lighter-color);
-	background-color: white;
-	transition: all 100ms linear;
-}
-
 .closing_button {
 	background-color: var(--secondary-darker-color);
-	height: 1.5rem;
-	width: 1.5rem;
+	padding: 0.1rem;
 	border-radius: 50%;
 }
 
@@ -174,17 +171,17 @@ label {
 	font-weight: bolder;
 }
 
-input:not([type='submit']) {
+input:not([type='submit']), select {
 	color: var(--interactible-color);
 	border: 0.15rem solid var(--interactible-color);
 	border-radius: 0.4rem;
 	padding: 0.2rem 0.3rem;
 }
 
-input:focus {
+input:focus, select:hover {
 	padding: 0.3rem 0.3rem;
-	border-width:0.20rem;
-	transition: padding 50ms linear, border-width 50ms linear;
+	border-width: 0.20rem;
+	transition: all linear;
 }
 
 @keyframes fadeSlideInRight {
@@ -237,5 +234,14 @@ input:focus {
 	100% {
 		fill: var(--secondary-darker-color);
 		transform: rotate(0deg);
+	}
+}
+
+@keyframes rotate { 
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360);
 	}
 }
