@@ -115,8 +115,9 @@
 		}
 		$conn = connectToDB($serverName, $userName, $password, $dbName);
 		if($conn) {
+			//~ echo json_encode(true);
 			echo json_encode(pushPlantPossededInfo($conn,
-				...formatAsQueryArgs($_SESSION["email"], $_GET["botanical_name"])), $_GET["quantity"]);
+				...formatAsQueryArgs($_SESSION["email"], $_GET["botanical_name"], $_GET["quantity"])));
 			disconnectFromDB($conn);
 		} else {
 			$errors[] = "connexion à la base de données impossible";
@@ -135,8 +136,8 @@
 		
 	if(isset($_GET["getNonPossededPlants"]) && $_GET["getNonPossededPlants"] == true)
 		getAddablePlants();
-
+		
 	if(isset($_GET["addOrUpdatePossededPlant"]) && $_GET["addOrUpdatePossededPlant"] == true
 		&& isset($_GET["botanical_name"]) && !empty($_GET["botanical_name"])
 		&& isset($_GET["quantity"]) && !empty($_GET["quantity"]))
-		addOrUpdatePossededPlant();
+	addOrUpdatePossededPlant();

@@ -1,11 +1,10 @@
 const addOrUpdatePlantOfUser = async (botanicalName, quantity) => {
-	return new Promise((resolve) => setTimeout(resolve, 1000));
 	
-	if(botanicalName && quantity) {
+	if(botanicalName && quantity && parseInt(quantity, 10) == quantity && typeof botanicalname != "string") {
 		let fetched = await fetch(
 			"/config/config.php?" +
 			new URLSearchParams({
-				addOrUpdatePlantOfUser: true,
+				addOrUpdatePossededPlant: true,
 				botanical_name: botanicalName,
 				quantity: quantity,
 			}),
@@ -15,6 +14,11 @@ const addOrUpdatePlantOfUser = async (botanicalName, quantity) => {
 			},
 		);
 		
-		return await fetched.json();
-	} else throw "mauvaises données en paramètre";
+		isPushed = await fetched.json();
+		
+		displayMessages();
+		return isPushed;
+	} else {
+		return false;
+	}
 }

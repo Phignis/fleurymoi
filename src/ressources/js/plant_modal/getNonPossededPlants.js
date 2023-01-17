@@ -15,10 +15,7 @@ const sendNewPossededPlant = async (formInfo, buttonToAnimate) => {
 	let oldColor = formInfo.style.backgroundColor;
 	formInfo.style.backgroundColor = "grey";
 	
-	console.log(selectPlant.value);
-	console.log(quantityInput.value);
-	
-	await addOrUpdatePlantOfUser(); // wait for add or update to make form disappears
+	await addOrUpdatePlantOfUser(selectPlant.value.split('-')[0], quantityInput.value); // wait for add or update to make form disappears
 	
 	formInfo.classList.remove("padding-appears");
 	formInfo.classList.add("right-hidden-padding");
